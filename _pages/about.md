@@ -17,7 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am an undergraduate student at Nanjing University of Information Science and Technology, and currently pursuing an internship at Shanghai AI Lab, where my research focuses on large language model (LLM) reasoning, multi-agent frameworks, and various LLM application research. I am actively seeking opportunities for academic collaboration and would be delighted to discuss potential partnerships. Please feel free to contact me at auraithm@gmail.com (personal email) or evonexusx@gmail.com.
+I am an undergraduate student at Nanjing University of Information Science and Technology, and currently pursuing an internship at Shanghai AI Lab.
+
+My current research focuses on large language model (LLM) reasoning, multi-agent frameworks, and various LLM application research. I am actively seeking opportunities for academic collaboration and would be delighted to discuss potential partnerships. Please feel free to contact me at <auraithm@gmail.com> (personal email) or <evonexusx@gmail.com>.
 
 # 🔥 News
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
