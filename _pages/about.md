@@ -21,9 +21,7 @@ I am currently an junior undergraduate student at the School of Artificial Intel
 
 I obtained a silver medal in the Kaggle competition "LLM Prompt Recovery", placing within the top 2.6% of participants. I won the championship in the [IEEE CEC Competition on Seeking Multiple Optima in Dynamic Environments](http://mi.hitsz.edu.cn/activities/smode_cec2023/index.html) for two consecutive years (2023,2024). Additionally, I was awarded a national first prize in the Lanqiao Cup (蓝桥杯).
 
-My current research focuses on evolutionary computation, LLM reasoning, multi-agent frameworks, and various LLM application research. I have 
-
-I am actively seeking opportunities for academic collaboration and would be delighted to discuss potential partnerships. Please feel free to contact me at <auraithm@gmail.com> (personal email) or <evonexusx@gmail.com>.
+My current research focuses on evolutionary computation, LLM reasoning, multi-agent frameworks, and various LLM application research. I am actively seeking opportunities for academic collaboration and would be delighted to discuss potential partnerships. Please feel free to contact me at <auraithm@gmail.com> (personal email) or <evonexusx@gmail.com>.
 
 
 # 🔥 News
