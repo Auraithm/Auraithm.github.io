@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
  
-I am currently an junior undergraduate student at the School of Artificial Intelligence, Nanjing University of Information Science and Technology, where Peilan Xu (许沛澜) serves as my academic advisor. I am presently undertaking an internship at Shanghai Artificial Intelligence Laboratory ([Shanghai AI Lab](https://www.shlab.org.cn/)) under the mentorship of Rui Su (苏锐). I also collaborate with Xinjie Zhao (赵新杰) from The University of Tokyo closely. 
+I am currently an junior undergraduate student at the School of Artificial Intelligence, Nanjing University of Information Science and Technology, where Peilan Xu (许沛澜) serves as my academic advisor. I am presently undertaking an internship at Shanghai Artificial Intelligence Laboratory ([Shanghai AI Lab](https://www.shlab.org.cn/)) under the mentorship of Rui Su (苏锐). Concurrently, I hold a research assistant position at the University of Tokyo, and collaborate with Xinjie Zhao (赵新杰) closely.
 
 My current research focuses on evolutionary computation, LLM reasoning, multi-agent frameworks, and various LLM application research. I am actively seeking opportunities for academic collaboration and would be delighted to discuss potential partnerships. Please feel free to contact me at <auraithm@gmail.com> (personal email) or <evonexusx@gmail.com>.
 
