@@ -22,7 +22,7 @@ I am currently an junior undergraduate student at the School of Artificial Intel
 
 My current research focuses on evolutionary computation, LLM reasoning, multi-agent frameworks, and various LLM application research. Several papers have been submitted to the top journals and conferences in the field of artificial intelligence (such as ACM Transactions, IJCAI, ACL ...), and my representative work "Density-Assisted Evolutionary Dynamic Multimodal Optimization" has been accepted by ACM TELO.
 
-Currently, I am undertaking an internship at [Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室") under the mentorship of [Rui Su](https://scholar.google.ca/citations?hl=zh-CN&authuser=2&user=tLLmRBwAAAAJ "苏锐"). Concurrently, I am working as a research assistant to [Irene Li](https://scholar.google.com/citations?hl=zh-CN&user=JuYPjCMAAAAJ&view_op=list_works&sortby=pubdate) in [Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/) and collaborate with [Xinjie Zhao]([https://openreview.net/profile?id=~Zhao_Xinjie1](https://scholar.google.com/citations?hl=zh-CN&user=_l5fPvEAAAAJ) "赵新杰") closely.
+Currently, I am undertaking an internship at [Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室") under the mentorship of [Rui Su](https://scholar.google.ca/citations?hl=zh-CN&authuser=2&user=tLLmRBwAAAAJ "苏锐"). Concurrently, I am working as a research assistant at The University of Tokyo, and collaborate closely with [Xinjie Zhao]([https://openreview.net/profile?id=~Zhao_Xinjie1](https://scholar.google.com/citations?hl=zh-CN&user=_l5fPvEAAAAJ) "赵新杰"), who is under the mentorship of [Irene Li](https://scholar.google.com/citations?hl=zh-CN&user=JuYPjCMAAAAJ&view_op=list_works&sortby=pubdate) in [Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/), .
 
 I am honoured to be recognized as a **Kaggle Expert** for winning two silver medals in LLM competitions. Additionally, I won the championship in the [IEEE CEC Competition on Seeking Multiple Optima in Dynamic Environments](http://mi.hitsz.edu.cn/activities/smode_cec2023/index.html) for two consecutive years (2023,2024), and was awarded a national first prize in the Lanqiao Cup.
 
@@ -141,5 +141,5 @@ Recent advances in large language models (LLMs) have significantly improved mult
 
 # 💻 Internships
 - *2024.10 - 2025.03 (now)*, Internship, Shanghai Artificial Intelligence Laboratory ([Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室")), China.
-- *2024.11 - 2025.03 (now)*, Research Assistant, Matsuo-Iwasawa Lab ([Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/)), Japan.
+- *2024.11 - 2025.03 (now)*, Research Assistant, The University of Tokyo, Japan.
 - *2025.01 - 2025.03 (now)*, Research Assistant, Science and Technology Bureau of Mengzi City, Honghe Prefecture, Yunnan Province, China **(State-owned enterprise)**.
