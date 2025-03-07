@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Ying Zhu"
-description              : "China"
+description              : ""
 repository               : "Auraithm/Auraithm.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -27,7 +27,7 @@ author:
   location         : "Jiangsu, China"
   employer         :
   pubmed           :  
-  googlescholar    : "https://scholar.google.com/citations?user=-vRC-VEAAAAJ"
+  googlescholar    : ""
   email            : "auraithm@gmail.com"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
