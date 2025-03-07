@@ -13,7 +13,7 @@ main:
     url: "/#-publications"
 
   - title: "Research Overview"
-    url: "/#-paper-overview"
+    url: "/#-research-overview"
     
   - title: "Educations"
     url: "/#-educations"
