@@ -113,7 +113,7 @@ To enhance tourists' experiences and immersion, this paper proposes a narrative-
 
 ---
 
-## **[ReAgent: Reversible Multi-Agent Reasoning for Knowledge-Enhanced Multi-Hop QA](https://arxiv.org/abs/2502.14456)**
+## **ReAgent: Reversible Multi-Agent Reasoning for Knowledge-Enhanced Multi-Hop QA**
 
 **Authors:** Zhao Xinjie, Fan Gao, Rui Yang, Yingjian Chen, Yuyang Wang, **Ying Zhu**, Jiacheng Tang, Irene Li.
 
