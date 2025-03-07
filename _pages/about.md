@@ -52,10 +52,10 @@ My current research focuses on evolutionary computation, LLM reasoning, multi-ag
 
 # 🎖 Honors and Awards
 - *2025.03* Won a silver medal at the Kaggle competition **"LLMs - You Can't Please Them All"**.
-- *2024.07* Won the championship in the **[IEEE CEC 2024 Competition on Seeking Multiple Optima in Dynamic Environments]**.
+- *2024.07* Won the championship in the **IEEE CEC 2024 Competition on Seeking Multiple Optima in Dynamic Environments**.
 - *2024.06* Won the national first prize in the Lanqiao Cup.
 - *2024.04* Won a silver medal at the Kaggle competition **"LLM Prompt Recovery"**.
-- *2023.07* Won the championship in the **[IEEE CEC 2023 Competition on Seeking Multiple Optima in Dynamic Environments]**.
+- *2023.07* Won the championship in the **IEEE CEC 2023 Competition on Seeking Multiple Optima in Dynamic Environments**.
 
 # 📖 Educations
 - *2022.09 - 2025.03 (now)*, the School of Artificial Intelligence, Nanjing University of Information Science and Technology.
