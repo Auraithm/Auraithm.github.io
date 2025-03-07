@@ -47,7 +47,7 @@ My current research focuses on evolutionary computation, LLM reasoning, multi-ag
 
 - [GRATR: Zero-Shot Evidence Graph Retrieval-Augmented Trustworthiness Reasoning](https://arxiv.org/abs/2408.12333), **Ying Zhu\***, Shengchang Li\*, Ziqian Kong, Qiang Yang, Peilan Xu, **arXiv**.
 - [Narrative-Driven Travel Planning: Geocultural-Grounded Script Generation with Evolutionary Itinerary Optimization](https://arxiv.org/abs/2502.14456), Ran Ding\*, Ziyu Zhang\*, **Ying Zhu\***, Ziqian Kong, Peilan Xu, **arXiv**.
-- [ReAgent: Reversible Multi-Agent Reasoning for Knowledge-Enhanced Multi-Hop QA], Zhao Xinjie, Fan Gao, Rui Yang, Yingjian Chen, Yuyang Wang, **Ying Zhu**, Jiacheng Tang, Irene Li , **arXiv**.
+- ReAgent: Reversible Multi-Agent Reasoning for Knowledge-Enhanced Multi-Hop QA, Zhao Xinjie, Fan Gao, Rui Yang, Yingjian Chen, Yuyang Wang, **Ying Zhu**, Jiacheng Tang, Irene Li , **arXiv**.
 
 
 # 🎖 Honors and Awards
@@ -63,4 +63,4 @@ My current research focuses on evolutionary computation, LLM reasoning, multi-ag
 # 💻 Internships
 - *2024.10 - 2025.03 (now)*, Internship, Shanghai Artificial Intelligence Laboratory ([Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室")), China.
 - *2024.11 - 2025.03 (now)*, Research Assistant, Matsuo-Iwasawa Lab ([Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/)), Japan.
-- *2025.01 - 2025.03 (now)*, Research Assistant, Science and Technology Bureau of Mengzi City, Honghe Prefecture, Yunnan Province, China
+- *2025.01 - 2025.03 (now)*, Research Assistant, Science and Technology Bureau of Mengzi City, Honghe Prefecture, Yunnan Province, China **(State-owned enterprise)**.
