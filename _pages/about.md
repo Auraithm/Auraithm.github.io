@@ -47,9 +47,9 @@ I am actively seeking opportunities for academic collaboration and would be deli
 
 
 # 💬 Research Overviews
-<div style="float: left; margin-right: 20px; width: 100%;">
+<div style="float: center; margin-right: 20px; width: 50%;">
     <div class="badge">ACM TELO</div>
-    <img src='images/Density_00.png' alt="sym" style="width: 100%;">
+    <img src='images/Density.pdf' alt="sym" style="width: 100%;">
 </div>
 
 **Density-Assisted Evolutionary Dynamic Multimodal Optimization**
