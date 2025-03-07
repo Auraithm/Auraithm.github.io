@@ -46,7 +46,7 @@ I am actively seeking opportunities for academic collaboration and would be deli
 - **ReAgent: Reversible Multi-Agent Reasoning for Knowledge-Enhanced Multi-Hop QA**, Zhao Xinjie, Fan Gao, Rui Yang, Yingjian Chen, Yuyang Wang, **Ying Zhu**, Jiacheng Tang, Irene Li , **arXiv**.
 
 
-# 💬 Research Overviews
+# 💬 Research Overview
 
 <h1 style="font-size: 24px;">Density-Assisted Evolutionary Dynamic Multimodal Optimization</h1>
 
@@ -54,7 +54,7 @@ I am actively seeking opportunities for academic collaboration and would be deli
 
 **Journal: ACM Transactions on Evolutionary Learning and Optimization**
 
-<div style="text-align: center; margin: 0 auto; max-width: 50%;">
+<div style="text-align: center; margin: 0 auto; max-width: 100%;">
     <div class="badge">ACM TELO</div>
     <img src='images/Density_00.png' alt="sym" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
 </div>
