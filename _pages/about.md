@@ -48,9 +48,9 @@ I am actively seeking opportunities for academic collaboration and would be deli
 
 # 💬 Research Overview
 
-<h1 style="font-size: 24px;">Density-Assisted Evolutionary Dynamic Multimodal Optimization</h1>
+## Density-Assisted Evolutionary Dynamic Multimodal Optimization
 
-**YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
+**Authors:** **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
 
 **Journal: ACM Transactions on Evolutionary Learning and Optimization**
 
@@ -59,9 +59,22 @@ I am actively seeking opportunities for academic collaboration and would be deli
     <img src='images/Density_00.png' alt="sym" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
 </div>
  
-<h1 style="font-size: 20px;">Abstract</h1>
+### Abstract
 Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of swiftly locating and tracking multiple optimal solutions over time. The primary challenge lies in controlling the population diversity to facilitate effective exploration, all within the limitation of computational resources between consecutive environmental changes. In this paper, we study the utilization of density information derived from both current and historical populations to enhance exploration. First, for each active sub-population, we construct a density landscape based on the distribution of concurrently active sub-populations, and establish dominance relationships between candidate solutions in the sub-population based on density and fitness values, directing this sub-population towards exploring low-density promising areas. Then, for each converged sub-population, we construct a density landscape based on the distribution of sub-populations that have historically become extinct, guiding the restart of this sub-population in low-density unexploited areas. Finally, we develop a comprehensive framework of density-assisted evolutionary algorithm (DAEA), which encompasses density-assisted search and restart, also combined with initialization. Moreover, we employ prediction and memory strategies to enhance the performance of DAEA in dynamic environments. Notably, the algorithm relies on an external monitor to detect environmental changes and trigger the dynamic response strategy. DAEA is tested on the CEC'2022 dynamic multimodal optimization benchmark suite, and is compared against several state-of-the-art dynamic multimodal optimization algorithms. The experimental results demonstrate the competitiveness of DAEA in handling DMMOPs.
 
+## Density-Assisted Evolutionary Dynamic Multimodal Optimization
+
+**Authors:** **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
+
+**Journal: ACM Transactions on Evolutionary Learning and Optimization**
+
+<div style="text-align: center; margin: 0 auto; max-width: 50%;">
+    <div class="badge">ACM TELO</div>
+    <img src='images/Density_00.png' alt="sym" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+</div>
+ 
+### Abstract
+Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of swiftly locating and tracking multiple optimal solutions over time. The primary challenge lies in controlling the population diversity to facilitate effective exploration, all within the limitation of computational resources between consecutive environmental changes. In this paper, we study the utilization of density information derived from both current and historical populations to enhance exploration. First, for each active sub-population, we construct a density landscape based on the distribution of concurrently active sub-populations, and establish dominance relationships between candidate solutions in the sub-population based on density and fitness values, directing this sub-population towards exploring low-density promising areas. Then, for each converged sub-population, we construct a density landscape based on the distribution of sub-populations that have historically become extinct, guiding the restart of this sub-population in low-density unexploited areas. Finally, we develop a comprehensive framework of density-assisted evolutionary algorithm (DAEA), which encompasses density-assisted search and restart, also combined with initialization. Moreover, we employ prediction and memory strategies to enhance the performance of DAEA in dynamic environments. Notably, the algorithm relies on an external monitor to detect environmental changes and trigger the dynamic response strategy. DAEA is tested on the CEC'2022 dynamic multimodal optimization benchmark suite, and is compared against several state-of-the-art dynamic multimodal optimization algorithms. The experimental results demonstrate the competitiveness of DAEA in handling DMMOPs.
 
 
 # 📖 Educations
