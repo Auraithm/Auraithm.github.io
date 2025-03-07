@@ -19,7 +19,7 @@ redirect_from:
  
 I am currently an junior undergraduate student at the School of Artificial Intelligence, Nanjing University of Information Science and Technology, where I am fortunate to be advised by [Peilan Xu](https://scholar.google.ca/citations?hl=zh-CN&user=MYTn5zYAAAAJ "许沛澜"). 
 
-Currently, I am undertaking an internship at Shanghai Artificial Intelligence Laboratory ([Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室")) under the mentorship of [Rui Su](https://scholar.google.ca/citations?hl=zh-CN&authuser=2&user=tLLmRBwAAAAJ "苏锐"). Concurrently, I am working as a research assistant to [Irene Li](https://scholar.google.com/citations?hl=zh-CN&user=JuYPjCMAAAAJ&view_op=list_works&sortby=pubdate) in [Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/) and collaborate with [Xinjie Zhao]([https://openreview.net/profile?id=~Zhao_Xinjie1](https://scholar.google.com/citations?hl=zh-CN&user=_l5fPvEAAAAJ) "赵新杰") closely.
+Currently, I am undertaking an internship at [Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室")) under the mentorship of [Rui Su](https://scholar.google.ca/citations?hl=zh-CN&authuser=2&user=tLLmRBwAAAAJ "苏锐"). Concurrently, I am working as a research assistant to [Irene Li](https://scholar.google.com/citations?hl=zh-CN&user=JuYPjCMAAAAJ&view_op=list_works&sortby=pubdate) in [Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/) and collaborate with [Xinjie Zhao]([https://openreview.net/profile?id=~Zhao_Xinjie1](https://scholar.google.com/citations?hl=zh-CN&user=_l5fPvEAAAAJ) "赵新杰") closely.
 
 I am honoured to be recognized as a **Kaggle Expert** for winning two silver medals in LLM competitions. Additionally, I won the championship in the [IEEE CEC Competition on Seeking Multiple Optima in Dynamic Environments](http://mi.hitsz.edu.cn/activities/smode_cec2023/index.html) for two consecutive years (2023,2024), and was awarded a national first prize in the Lanqiao Cup.
 
@@ -51,19 +51,16 @@ My current research focuses on evolutionary computation, LLM reasoning, multi-ag
 
 
 # 🎖 Honors and Awards
-- *2025.03* Won a silver medal at the Kaggle competition "LLMs - You Can't Please Them All".
-- *2024.07* Won the championship in the [IEEE CEC 2024 Competition on Seeking Multiple Optima in Dynamic Environments](http://mi.hitsz.edu.cn/activities/smode_cec2023/index.html).
+- *2025.03* Won a silver medal at the Kaggle competition **"LLMs - You Can't Please Them All"**.
+- *2024.07* Won the championship in the **[IEEE CEC 2024 Competition on Seeking Multiple Optima in Dynamic Environments]**.
 - *2024.06* Won the national first prize in the Lanqiao Cup.
-- *2024.04* Won a silver medal at the Kaggle competition "LLM Prompt Recovery".
-- *2023.07* Won the championship in the [IEEE CEC 2023 Competition on Seeking Multiple Optima in Dynamic Environments](http://mi.hitsz.edu.cn/activities/smode_cec2023/index.html).
+- *2024.04* Won a silver medal at the Kaggle competition **"LLM Prompt Recovery"**.
+- *2023.07* Won the championship in the **[IEEE CEC 2023 Competition on Seeking Multiple Optima in Dynamic Environments]**.
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+- *2022.09 - 2025.03 (now)*, the School of Artificial Intelligence, Nanjing University of Information Science and Technology.
 
 # 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+- *2024.10 - 2025.03 (now)*, Internship, Shanghai Artificial Intelligence Laboratory ([Shanghai AI Lab](https://www.shlab.org.cn/ "上海人工智能实验室")), China.
+- *2024.11 - 2025.03 (now)*, Research Assistant, Matsuo-Iwasawa Lab ([Matsuo Lab](https://weblab.t.u-tokyo.ac.jp/)), Japan.
+- *2025.01 - 2025.03 (now)*, Research Assistant, Science and Technology Bureau of Mengzi City, Honghe Prefecture, Yunnan Province, China
