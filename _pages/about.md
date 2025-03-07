@@ -54,11 +54,11 @@ I am actively seeking opportunities for academic collaboration and would be deli
 
 # 💬 Research Overview
 
-## Density-Assisted Evolutionary Dynamic Multimodal Optimization
+## **Density-Assisted Evolutionary Dynamic Multimodal Optimization**
 
 **Authors:** **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
 
-**Journal: ACM Transactions on Evolutionary Learning and Optimization**
+**Journal: ACM Transactions on Evolutionary Learning and Optimization** (Accept)
 
 <div style="text-align: center; margin: 0 auto; max-width: 50%;">
     <div class="badge">ACM TELO</div>
@@ -70,11 +70,11 @@ Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of s
 
 ---
 
-## Density-Assisted Evolutionary Dynamic Multimodal Optimization
+## **[GRATR: Zero-Shot Evidence Graph Retrieval-Augmented Trustworthiness Reasoning](https://arxiv.org/abs/2408.12333)**
 
-**Authors:** **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
+**Authors:** **Ying Zhu\***, Shengchang Li\*, Ziqian Kong, Qiang Yang, Peilan Xu, **arXiv**.
 
-**Journal: ACM Transactions on Evolutionary Learning and Optimization**
+**Conference: IJCAI 2025**
 
 <div style="text-align: center; margin: 0 auto; max-width: 50%;">
     <div class="badge">ACM TELO</div>
