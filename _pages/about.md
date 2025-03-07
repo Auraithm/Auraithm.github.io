@@ -28,7 +28,7 @@ My current research focuses on evolutionary computation, LLM reasoning, multi-ag
 
 # 🔥 News
 - *2025.03*: &nbsp;🎉🎉 Paper "Density-Assisted Evolutionary Dynamic Multimodal Optimization" is accepted by **ACM Transactions on Evolutionary Learning and Optimization**.
-- *2022.02*: &nbsp;🎉🎉 Won a silver medal at Kaggle competitions "LLMs - You Can't Please Them All".
+- *2022.03*: &nbsp;🎉🎉 Won a silver medal at Kaggle competitions "LLMs - You Can't Please Them All".
 
 # 📝 Publications 
 
