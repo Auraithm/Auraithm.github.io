@@ -60,6 +60,9 @@ I am actively seeking opportunities for academic collaboration and would be deli
 
 **Journal: ACM Transactions on Evolutionary Learning and Optimization** (Accept)
 
+**Code: <https://github.com/EvoNexusX/2023ZhuDAEA>**
+
+
 <div style="text-align: center; margin: 0 auto; max-width: 50%;">
     <div class="badge">ACM TELO</div>
     <img src='images/Density_00.png' alt="sym" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
@@ -74,16 +77,20 @@ Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of s
 
 **Authors:** **Ying Zhu\***, Shengchang Li\*, Ziqian Kong, Qiang Yang, Peilan Xu, **arXiv**.
 
-**Conference: IJCAI 2025**
+**Conference: IJCAI 2025** (Under Review)
 
-<div style="text-align: center; margin: 0 auto; max-width: 50%;">
+**Code: <https://github.com/EvoNexusX/2025ZhuGRATR>**
+
+
+<div style="text-align: center; margin: 0 auto; max-width: 100%;">
     <div class="badge">ACM TELO</div>
-    <img src='images/Density_00.png' alt="sym" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+    <img src='images/fig2_00.png' alt="sym" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
 </div>
  
 ### Abstract
-Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of swiftly locating and tracking multiple optimal solutions over time. The primary challenge lies in controlling the population diversity to facilitate effective exploration, all within the limitation of computational resources between consecutive environmental changes. In this paper, we study the utilization of density information derived from both current and historical populations to enhance exploration. First, for each active sub-population, we construct a density landscape based on the distribution of concurrently active sub-populations, and establish dominance relationships between candidate solutions in the sub-population based on density and fitness values, directing this sub-population towards exploring low-density promising areas. Then, for each converged sub-population, we construct a density landscape based on the distribution of sub-populations that have historically become extinct, guiding the restart of this sub-population in low-density unexploited areas. Finally, we develop a comprehensive framework of density-assisted evolutionary algorithm (DAEA), which encompasses density-assisted search and restart, also combined with initialization. Moreover, we employ prediction and memory strategies to enhance the performance of DAEA in dynamic environments. Notably, the algorithm relies on an external monitor to detect environmental changes and trigger the dynamic response strategy. DAEA is tested on the CEC'2022 dynamic multimodal optimization benchmark suite, and is compared against several state-of-the-art dynamic multimodal optimization algorithms. The experimental results demonstrate the competitiveness of DAEA in handling DMMOPs.
 
+Trustworthiness reasoning aims to enable agents in multiplayer games with incomplete information to identify potential allies and adversaries, thereby enhancing decision-making. In this paper, we introduce the graph retrieval-augmented trustworthiness reasoning (GRATR) framework, which retrieves observable evidence from the game environment to inform decision-making by large language models (LLMs) without requiring additional training, making it a zero-shot approach. Within the GRATR framework, agents first observe the actions of other players and evaluate the resulting shifts in inter-player trust, constructing a corresponding trustworthiness graph. During decision-making, the agent performs multi-hop retrieval to evaluate trustworthiness toward a specific target, where evidence chains are retrieved from multiple trusted sources to form a comprehensive assessment. Experiments in the multiplayer game \emph{Werewolf} demonstrate that GRATR outperforms the alternatives, improving reasoning accuracy by 50.5\% and reducing hallucination by 30.6\% compared to the baseline method. Additionally, when tested on a dataset of Twitter tweets during the U.S. election period, GRATR surpasses the baseline method by 10.4\% in accuracy, highlighting its potential in real-world applications such as intent analysis.
+ 
 ---
 
 # 📖 Educations
