@@ -52,7 +52,7 @@ I am actively seeking opportunities for academic collaboration and would be deli
     <img src='images/Density_00.png' alt="sym" style="width: 100%;">
 </div>
 
-**Density-Assisted Evolutionary Dynamic Multimodal Optimization**
+<h1 style="font-size: 24px;">Density-Assisted Evolutionary Dynamic Multimodal Optimization</h1>
 
 **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
 
