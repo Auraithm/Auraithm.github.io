@@ -39,6 +39,7 @@ My current research focuses on evolutionary computation, LLM reasoning, multi-ag
 
 **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo
 
+**Journal: ACM Transactions on Evolutionary Learning and Optimization**
 **Abstract**
     Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of swiftly locating and tracking multiple optimal solutions over time. The primary challenge lies in controlling the population diversity to facilitate effective exploration, all within the limitation of computational resources between consecutive environmental changes. In this paper, we study the utilization of density information derived from both current and historical populations to enhance exploration. First, for each active sub-population, we construct a density landscape based on the distribution of concurrently active sub-populations, and establish dominance relationships between candidate solutions in the sub-population based on density and fitness values, directing this sub-population towards exploring low-density promising areas...
     
