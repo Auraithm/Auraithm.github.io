@@ -48,6 +48,7 @@ I am actively seeking opportunities for academic collaboration and would be deli
 # 📝 Publications 
 - **Density-Assisted Evolutionary Dynamic Multimodal Optimization**, **YingZhu**, Peilan Xu, Jiahao Huang, Xin Lin, Wenjian Luo, **ACM TELO**.
 - **[GRATR: Zero-Shot Evidence Graph Retrieval-Augmented Trustworthiness Reasoning](https://arxiv.org/abs/2408.12333)**, **Ying Zhu\***, Shengchang Li\*, Ziqian Kong, Qiang Yang, Peilan Xu, **IJCAI 2025 (Under Review)**.
+- **Adaptive Interruption and Trust-Weighted Voting for Secure Multi-Agent Collaboration in Complex Question Answering**, **Ying Zhu\***, Zhao Xinjie, Irene Li, **arXiv**.
 - **[Narrative-Driven Travel Planning: Geocultural-Grounded Script Generation with Evolutionary Itinerary Optimization](https://arxiv.org/abs/2502.14456)**, Ran Ding\*, Ziyu Zhang\*, **Ying Zhu\***, Ziqian Kong, Peilan Xu, **ACL 2025 (Under Review)**.
 - **ReAgent: Reversible Multi-Agent Reasoning for Knowledge-Enhanced Multi-Hop QA**, Zhao Xinjie, Fan Gao, Rui Yang, Yingjian Chen, Yuyang Wang, **Ying Zhu**, Jiacheng Tang, Irene Li , **ACL 2025 (Under Review)**.
 
@@ -91,6 +92,16 @@ Dynamic multimodal optimization problems (DMMOPs) demand algorithms capable of s
 ### Abstract
 
 Trustworthiness reasoning aims to enable agents in multiplayer games with incomplete information to identify potential allies and adversaries, thereby enhancing decision-making. In this paper, we introduce the graph retrieval-augmented trustworthiness reasoning (GRATR) framework, which retrieves observable evidence from the game environment to inform decision-making by large language models (LLMs) without requiring additional training, making it a zero-shot approach. Within the GRATR framework, agents first observe the actions of other players and evaluate the resulting shifts in inter-player trust, constructing a corresponding trustworthiness graph. During decision-making, the agent performs multi-hop retrieval to evaluate trustworthiness toward a specific target, where evidence chains are retrieved from multiple trusted sources to form a comprehensive assessment. Experiments in the multiplayer game \emph{Werewolf} demonstrate that GRATR outperforms the alternatives, improving reasoning accuracy by 50.5\% and reducing hallucination by 30.6\% compared to the baseline method. Additionally, when tested on a dataset of Twitter tweets during the U.S. election period, GRATR surpasses the baseline method by 10.4\% in accuracy, highlighting its potential in real-world applications such as intent analysis.
+ 
+---
+
+## **Adaptive Interruption and Trust-Weighted Voting for Secure Multi-Agent Collaboration in Complex Question Answering**
+
+**Authors:** **Ying Zhu\***, Zhao Xinjie, Irene Li
+ 
+### Abstract
+
+Complex question answering often demands reasoning over multiple sources of information and integrating diverse forms of knowledge. However, reliance on a single chain-of-thought can lead to the propagation of errors, and systems remain vulnerable to malicious or misleading inputs. In this paper, we propose an enhanced multi-agent framework that introduces a fine-grained interruption (``breakpoint'') mechanism and a dynamic trust-weighted voting strategy to improve both robustness and explainability in multi-hop QA. Our approach integrates Bayesian-inspired agent credibility updates, segment-by-segment answer generation, and a mathematically grounded interruption strategy to limit error propagation. We describe the theoretical underpinnings and practical workflow of our system, then demonstrate how interruption triggers, weighted voting, and multi-agent collaboration converge to produce more accurate and secure answers. Experiments on benchmark QA datasets confirm significant improvements in correctness, stability, and interpretability, showing promise for broader adoption in adversarial or high-stakes settings.
  
 ---
 
