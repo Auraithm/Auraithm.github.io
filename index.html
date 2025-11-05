@@ -365,34 +365,36 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser Image-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      <!-- Main Teaser Image -->
+      <figure class="image">
+        <img src="static/images/carousel3.jpg" alt="Wu Framework Overview" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);"/>
+      </figure>
+      <!-- Image Description -->
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+        An overview of the Wu framework: an efficient post-training pipeline for diffusion large language models, featuring parallel decoding and advanced optimization techniques.
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser image -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">TL;DR</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            We release Wu, a high-performance diffusion large language model (DLLM), 
+            together with an open-source post-training framework designed for efficient and scalable DLLM adaptation. 
+            Our framework enables high-efficiency post-training at generation lengths of up to 8K tokens, substantially reducing computational overhead while maintaining model stability and convergence quality. 
+            Leveraging this framework, Wu achieves state-of-the-art (SOTA) performance across a broad range of downstream benchmarks, surpassing existing post-training paradigms in both efficiency and task generalization. 
+            This work establishes a practical foundation for advancing long-context DLLM post-training and adaptation.
           </p>
         </div>
       </div>
@@ -402,170 +404,107 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div style="margin-bottom: 2rem;">
+        <!-- Prompt Box -->
+        <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #3b82f6; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+            <i class="fas fa-user" style="color: #1e40af; margin-right: 0.75rem; font-size: 1.2rem;"></i>
+            <h4 style="margin: 0; color: #1e40af; font-weight: 600; font-size: 1.1rem;">Prompt</h4>
           </div>
+          <p style="margin: 0; color: #1e3a8a; font-size: 1rem; line-height: 1.6;">
+            How many apples are in the basket?
+          </p>
+        </div>
+
+        <!-- Response Box -->
+        <div style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+            <i class="fas fa-robot" style="color: #047857; margin-right: 0.75rem; font-size: 1.2rem;"></i>
+            <h4 style="margin: 0; color: #047857; font-weight: 600; font-size: 1.1rem;">Response</h4>
+          </div>
+          <p style="margin: 0; color: #065f46; font-size: 1rem; line-height: 1.6;">
+            There are 7 apples in the basket.
+          </p>
         </div>
       </div>
+
+      <!-- TODO: Replace with your teaser video -->
+      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+        <!-- TODO: Add your video file path here -->
+        <source src="static/videos/banner_video.mp4" type="video/mp4">
+      </video>
+      <!-- TODO: Replace with your video description -->
+      
     </div>
   </div>
 </section>
-<!-- End youtube video -->
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+<!-- HighLights Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">HighLights</h2>
+    
+    <div class="content" style="font-size: 1.1rem;">
+      <ul style="line-height: 2;">
+        <li>
+          <strong>🚀 Training — Efficient Post-Training Framework:</strong> 
+          An open-source post-training framework specifically designed for diffusion large language models (DLLMs).
+        </li>
+        
+        <li style="margin-top: 1rem;">
+          <strong>⚡ Speed — Parallel Decoding:</strong> 
+            Up to 32× speedup in inference time.
+        </li>
+        
+        <li style="margin-top: 1rem;">
+          <strong>🧠 Performance — Advanced Science Reasoning Benchmarks:</strong> 
+          High scores on MATH and AIME.
+        </li>
+      </ul>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
+<!-- End HighLights Section -->
 
-
-
-
-
-
-<!-- Paper poster -->
+<!-- Performance Section -->
 <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Performance</h2>
+      
+      <div class="content has-text-justified" style="margin-bottom: 2rem;">
+        <p>
+          这里是performance的文本内容
+        </p>
       </div>
-    </div>
-  </section>
-<!--End paper poster -->
 
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{Wu2024,
-  title={Wu: A High-Performance and Efficient Diffusion Language Model},
-  author={Ying Zhu and Jiaxin Wan and Tianyi Liang and Xu Guo and Xiaoran Liu and Zengfeng Huang and Ziwei He and Xipeng Qiu},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <figure class="image">
+            <img src="static/images/carousel1.jpg" alt="Performance Benchmark" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+            <figcaption style="margin-top: 0.75rem; color: #64748b; text-align: center; font-size: 0.9rem;">基准测试对比：Wu vs 其他模型</figcaption>
+          </figure>
         </div>
+        <div class="column is-6">
+          <figure class="image">
+            <img src="static/images/carousel1.jpg" alt="Training Efficiency" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+            <figcaption style="margin-top: 0.75rem; color: #64748b; text-align: center; font-size: 0.9rem;">训练效率分析：收敛速度与资源消耗</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <figure class="image">
+          <img src="static/images/carousel1.jpg" alt="Detailed Metrics" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);"/>
+          <figcaption style="margin-top: 1rem; color: #64748b; text-align: center; font-size: 0.95rem;">图2: 详细性能指标对比，包括准确率、F1分数、推理速度等多维度评估</figcaption>
+        </figure>
       </div>
     </div>
   </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</section>
+<!-- End Performance Section -->

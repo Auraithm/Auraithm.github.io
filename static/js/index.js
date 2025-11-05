@@ -133,6 +133,11 @@ $(document).ready(function() {
 
 	// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
+    
+    // Initialize second carousel if exists
+    if (document.getElementById('results-carousel-2')) {
+        bulmaCarousel.attach('#results-carousel-2', options);
+    }
 	
     bulmaSlider.attach();
     
