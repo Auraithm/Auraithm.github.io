@@ -6,7 +6,7 @@
 Ying Zhu, Fudan University, Shanghai Innovation Institute
 Jiaxin Wan, Fudan University, Shanghai Innovation Institute
 Tianyi Liang, East China Normal University, Shanghai Innovation Institute
-Xu Guo, Shanghai Artificial Intelligence Laboratory
+Xu Guo, Fudan University, Shanghai Innovation Institute
 Xiaoran Liu, Fudan University, Shanghai Innovation Institute,
 Zengfeng Huang, Fudan University, Shanghai Innovation Institute
 Ziwei He, Shanghai Innovation Institute
