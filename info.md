@@ -4,7 +4,7 @@
 
 ## 作者名字
 Ying Zhu, Fudan University, Shanghai Innovation Institute
-Jiaxin Wan, Fudan University, Shanghai Innovation Institute
+Jiaxin Wan, University of Electronic Science and Technology of China, Shanghai Innovation Institute
 Tianyi Liang, East China Normal University, Shanghai Innovation Institute
 Xu Guo, Fudan University, Shanghai Innovation Institute
 Xiaoran Liu, Fudan University, Shanghai Innovation Institute,

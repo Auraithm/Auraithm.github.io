@@ -49,176 +49,189 @@ data = {
 }
 SPEED = 100  # milliseconds per step
 BLOCK_SIZE = 4
+OUTPUT_HEIGHT = 800  # output section height in pixels
 # --- self-contained HTML (auto-play with loop, no controls) ---
 html = f"""
-<style>
-  :root {{
-    --fg: #111;
-    --bg: #fafafa;
-    --muted: #888;
-    --new: #0a7f2e;
-    --mask: #aaa;
-    --border: #ddd;
-    --prompt-bg: #f5f9ff;
-    --output-bg: #fdfdfd;
-    --prompt-border: #a3c4f3;
-    --output-border: #c4e3c4;
-  }}
-  body {{
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    margin: 20px auto;
-    max-width: 900px;
-    color: var(--fg);
-    background: var(--bg);
-  }}
-  h1 {{
-    font-size: 20px;
-    margin: 0 0 12px 0;
-    font-weight: 600;
-    text-align: center;
-    color: #333;
-  }}
-  #meta {{
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 10px;
-    text-align: center;
-  }}
-  .section {{
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    line-height: 1.55;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    width: 100%;
-    box-sizing: border-box;
-  }}
-  #prompt {{
-    background: var(--prompt-bg);
-    border: 1px solid var(--prompt-border);
-    min-height: 80px;
-  }}
-  #output {{
-    background: var(--output-bg);
-    border: 1px solid var(--output-border);
-    min-height: 600px;
-    height: 600px;
-    overflow-y: auto;
-  }}
-  .masked {{
-    color: transparent;
-    text-shadow: 0 0 0 var(--mask);
-  }}
-  .unmasked {{
-    color: inherit;
-  }}
-  .new {{
-    background: #e9f7ee;
-    outline: 1px dashed #b7e1c3;
-    animation: fadeIn 0.3s ease-out;
-  }}
-  .prompt {{
-    color: #004b9b;
-    font-weight: 600;
-  }}
-  .special {{
-    color: var(--muted);
-  }}
-  .maskToken {{
-    display:inline-block;
-    width:9ch;
-    text-align:center;
-    opacity:0.6;
-    white-space:nowrap;
-  }}
-  @keyframes fadeIn {{
-    from {{ background:#cdecd8; }}
-    to {{ background:#e9f7ee; }}
-  }}
-</style>
-
-<body>
-  <h1>🧩 Token Generation Trace Viewer</h1>
-  <div id="meta"></div>
-  
-  <div id="prompt" class="section"></div>
-  <div id="output" class="section"></div>
-
-  <script id="data" type="application/json">{json.dumps(data)}</script>
-  <script>
-    const DATA = JSON.parse(document.getElementById('data').textContent);
-    const pieces = DATA.pieces.map(piece => 
-      piece.replace(/\\f/g, '\\\\f').replace(/\\t/g, '\\\\t')
-           .replace(/\\r/g, '\\\\r').replace(/\\v/g, '\\\\v')
-    );
-    const steps  = DATA.step_map;
-    const isSpec = DATA.is_special;
-    const promptLength = DATA.prompt_length;
-
-    const maxStep = Math.max(...steps);
-    const promptEl = document.getElementById('prompt');
-    const outputEl = document.getElementById('output');
-    const meta = document.getElementById('meta');
-    let currentStep = 0;
-
-    function render(t) {{
-      const fragPrompt = document.createDocumentFragment();
-      const fragOutput = document.createDocumentFragment();
-
-      let revealed = 0;
-
-      for (let i = 0; i < pieces.length; i++) {{
-        const span = document.createElement('span');
-        const piece = pieces[i];
-        const step = steps[i];
-
-        if (step === -1) {{
-          // Prompt tokens
-          span.className = 'unmasked prompt';
-          span.textContent = piece;
-          fragPrompt.appendChild(span);
-        }} else if (step <= t) {{
-          // Output tokens already revealed
-          span.className = 'unmasked' + (step === t ? ' new' : '');
-          span.textContent = piece;
-          fragOutput.appendChild(span);
-        }} else {{
-          // Masked or hidden tokens
-          const tokenIndex = step;
-          const blockStart = Math.floor(t / {BLOCK_SIZE}) * {BLOCK_SIZE};
-          const blockEnd = blockStart + {BLOCK_SIZE};
-          if (tokenIndex >= blockStart && tokenIndex < blockEnd) {{
-            span.className = 'masked maskToken' + (isSpec[i] ? ' special' : '');
-            span.textContent = '|<MASK>|';
-            fragOutput.appendChild(span);
-          }}
+<!-- Teaser trace-->
+<section class="hero teaser" style="padding: 3rem 5rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <style>
+        :root {{
+            --fg: #111;
+            --bg: #fafafa;
+            --muted: #888;
+            --new: #0a7f2e;
+            --mask: #aaa;
+            --border: #ddd;
+            --prompt-bg: #f5f9ff;
+            --output-bg: #fdfdfd;
+            --prompt-border: #a3c4f3;
+            --output-border: #c4e3c4;
         }}
-      }}
+        body {{
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            margin: 20px auto;
+            max-width: 900px;
+            color: var(--fg);
+            background: var(--bg);
+        }}
+        h1 {{
+            font-size: 20px;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            text-align: center;
+            color: #333;
+        }}
+        #meta {{
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-align: center;
+        }}
+        .section {{
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            line-height: 1.55;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }}
+        #prompt {{
+            background: var(--prompt-bg);
+            border: 1px solid var(--prompt-border);
+            min-height: 80px;
+            padding: 16px 16px !important;
+        }}
+        #output {{
+            background: var(--output-bg);
+            border: 1px solid var(--output-border);
+            min-height: {OUTPUT_HEIGHT}px;
+            height: {OUTPUT_HEIGHT}px;
+            overflow-y: auto;
+            padding: 16px 16px !important;
+        }}
+        .masked {{
+            color: transparent;
+            text-shadow: 0 0 0 var(--mask);
+        }}
+        .unmasked {{
+            color: inherit;
+        }}
+        .new {{
+            background: #e9f7ee;
+            outline: 1px dashed #b7e1c3;
+            animation: fadeIn 0.3s ease-out;
+        }}
+        .prompt {{
+            color: #004b9b;
+            font-weight: 600;
+        }}
+        .special {{
+            color: var(--muted);
+        }}
+        .maskToken {{
+            display:inline-block;
+            width:9ch;
+            text-align:center;
+            opacity:0.6;
+            white-space:nowrap;
+        }}
+        @keyframes fadeIn {{
+            from {{ background:#cdecd8; }}
+            to {{ background:#e9f7ee; }}
+        }}
+        </style>
 
-      promptEl.innerHTML = '';
-      promptEl.appendChild(fragPrompt);
-      outputEl.innerHTML = '';
-      outputEl.appendChild(fragOutput);
-      meta.textContent = `Generation speed: ${{(t > 0 ? ((revealed - promptLength - 1) / t).toFixed(2) : 0)}} tokens/step`;
-    }}
+        <body>
+        <h1>🧩 Token Generation Trace Viewer</h1>
+        <div id="meta"></div>
+        
+        <div id="prompt" class="section"></div>
+        <div id="output" class="section"></div>
 
-    function autoPlay() {{
-      render(currentStep);
-      currentStep++;
-      if (currentStep > maxStep) {{
-        setTimeout(() => {{
-          currentStep = 0;
-          autoPlay();
-        }}, 2000);
-      }} else {{
-        setTimeout(autoPlay, {SPEED});
-      }}
-    }}
-    autoPlay();
-  </script>
-</body>
+        <script id="data" type="application/json">{json.dumps(data)}</script>
+        <script>
+            const DATA = JSON.parse(document.getElementById('data').textContent);
+            const pieces = DATA.pieces.map(piece => 
+            piece.replace(/\\f/g, '\\\\f').replace(/\\t/g, '\\\\t')
+                .replace(/\\r/g, '\\\\r').replace(/\\v/g, '\\\\v')
+            );
+            const steps  = DATA.step_map;
+            const isSpec = DATA.is_special;
+            const promptLength = DATA.prompt_length;
+
+            const maxStep = Math.max(...steps);
+            const promptEl = document.getElementById('prompt');
+            const outputEl = document.getElementById('output');
+            const meta = document.getElementById('meta');
+            let currentStep = 0;
+
+            function render(t) {{
+            const fragPrompt = document.createDocumentFragment();
+            const fragOutput = document.createDocumentFragment();
+
+            let revealed = 0;
+
+            for (let i = 0; i < pieces.length; i++) {{
+                const span = document.createElement('span');
+                const piece = pieces[i];
+                const step = steps[i];
+
+                if (step === -1) {{
+                // Prompt tokens
+                span.className = 'unmasked prompt';
+                span.textContent = piece;
+                fragPrompt.appendChild(span);
+                }} else if (step <= t) {{
+                // Output tokens already revealed
+                revealed++;
+                span.className = 'unmasked' + (step === t ? ' new' : '');
+                span.textContent = piece;
+                fragOutput.appendChild(span);
+                }} else {{
+                // Masked or hidden tokens
+                const tokenIndex = step;
+                const blockStart = Math.floor(t / {BLOCK_SIZE}) * {BLOCK_SIZE};
+                const blockEnd = blockStart + {BLOCK_SIZE};
+                if (tokenIndex >= blockStart && tokenIndex < blockEnd) {{
+                    span.className = 'masked maskToken' + (isSpec[i] ? ' special' : '');
+                    span.textContent = '|<MASK>|';
+                    fragOutput.appendChild(span);
+                }}
+                }}
+            }}
+
+            promptEl.innerHTML = '';
+            promptEl.appendChild(fragPrompt);
+            outputEl.innerHTML = '';
+            outputEl.appendChild(fragOutput);
+            // revealed 是已揭示的输出 token 数量,t 是当前步数(从0开始)
+            // 每步生成的 token 数 = revealed / (t + 1)
+            meta.textContent = `Generation speed: ${{(t >= 0 ? (revealed / (t + 1)).toFixed(2) : 0)}} tokens/step`;
+            }}
+
+            function autoPlay() {{
+            render(currentStep);
+            currentStep++;
+            if (currentStep > maxStep) {{
+                setTimeout(() => {{
+                currentStep = 0;
+                autoPlay();
+                }}, 2000);
+            }} else {{
+                setTimeout(autoPlay, {SPEED});
+            }}
+            }}
+            autoPlay();
+        </script>
+        </body>
+    </div>
+  </div>
+</section>
 """
 
 
@@ -228,5 +241,40 @@ with open(out_path, "w", encoding="utf-8") as f:
 
 print(f"[Trace Viewer] Wrote: {os.path.abspath(out_path)}  (open in your browser)")
 
+# 将生成的 HTML 内容替换到 index.html 的 <!-- Teaser trace--> 部分
+index_path = "index.html"
+try:
+    with open(index_path, "r", encoding="utf-8") as f:
+        index_content = f.read()
+    
+    # 查找 <!-- Teaser trace--> 部分的开始和结束位置
+    start_marker = "<!-- Teaser trace-->"
+    end_marker = "<!-- HighLights Section -->"
+    
+    start_idx = index_content.find(start_marker)
+    end_idx = index_content.find(end_marker)
+    
+    if start_idx != -1 and end_idx != -1:
+        # 替换内容
+        new_index_content = (
+            index_content[:start_idx] + 
+            html + 
+            "\n\n\n" +
+            index_content[end_idx:]
+        )
+        
+        # 写回文件
+        with open(index_path, "w", encoding="utf-8") as f:
+            f.write(new_index_content)
+        
+        print(f"[Index Update] Successfully updated {os.path.abspath(index_path)}")
+    else:
+        print(f"[Index Update] Warning: Could not find markers in {index_path}")
+        if start_idx == -1:
+            print(f"  - Start marker '{start_marker}' not found")
+        if end_idx == -1:
+            print(f"  - End marker '{end_marker}' not found")
+except Exception as e:
+    print(f"[Index Update] Error updating {index_path}: {e}")
 
 
