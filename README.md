@@ -1,80 +1,54 @@
-# Academic Project Page Template
+# Aha: A High-Performance and Efficient Diffusion Language Model
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
+[Ying Zhu](#)<sup>1,2</sup>, [Jiaxin Wan](#)<sup>3,2</sup>, [Tianyi Liang](#)<sup>4,2</sup>, [Xu Guo](#)<sup>1,2</sup>, [Xiaoran Liu](#)<sup>1,2</sup>, [Zengfeng Huang](#)<sup>1,2</sup>, [Ziwei He](#)<sup>2</sup>, [Xipeng Qiu](#)<sup>1,2</sup>
 
-A clean, responsive template for academic project pages.
+<sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>University of Electronic Science and Technology of China, <sup>4</sup>East China Normal University
 
-
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+[![arXiv](https://img.shields.io/badge/arXiv-2501.XXXXX-b31b1b.svg)](https://arxiv.org/abs/YOUR_PAPER_ID)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/YOUR_PAPER_ID.pdf)
+[![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/YOUR_REPO_HERE)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow.svg)](https://huggingface.co/YOUR_MODEL_HERE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 
+![Aha Framework Overview](static/images/accuracy.png)
 
-## Start using the template
-To start using the template click on `Use this Template`.
+## TL;DR
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+We introduce **Aha**, a high-performance open-source diffusion large language model (DLLM), alongside an open-source post-training framework specifically designed for efficient and scalable DLLM adaptation. Our framework supports long-context post-training up to 8K tokens, dramatically reducing computational cost while preserving model stability and convergence.
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+Built upon this framework, Aha achieves state-of-the-art (SOTA) results across multiple mathematical and reasoning benchmarks, surpassing existing post-training approaches in both efficiency and generalization. This release establishes a practical, fully open foundation for advancing long-context DLLM post-training and adaptation research.
 
-## What's New
+## HighLights
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
+- **🚀 Training — Efficient Post-Training Framework:** An open-source post-training framework specifically designed for DLLMs.
+- **⚡ Speed — Parallel Decoding:** Up to 32× speedup in inference time.
+- **🧠 Performance — Advanced Science Reasoning Benchmarks:** High scores on MATH and AIME.
 
-## Components
+## Method
 
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
+**Aha-Math-8B-Instruct** is developed based on **SDAR-8B-Chat** as the base model, and trained within our open-source **diffusion post-training framework** consisting of two stages: *Supervised Fine-Tuning (SFT)* and *Reinforcement Learning (RL)*.
 
-## Customization
+### Stage 1: Supervised Fine-Tuning (SFT)
 
-The HTML file has TODO comments showing what to replace:
+We fine-tune the model with a generation length of **2K**, using a high-quality dataset of **2K samples synthesized by Qwen3-Max**. The data are carefully filtered to ensure diversity, correctness, and sequence-length consistency with training requirements.
 
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
+### Stage 2: Reinforcement Learning (RL)
 
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
+We adopt the **Trace-RL** algorithm to optimize reasoning robustness and long-context performance. The generation length is extended to **8K**, and we integrate a **diffusion-generated step map** during optimization to accelerate convergence and stabilize gradient updates.
 
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
+This two-stage design enables **Aha-Math-8B-Instruct** to achieve efficient long-context adaptation while preserving stability and strong generalization across mathematical reasoning benchmarks.
 
-## Tips
 
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
+## Performance
 
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
+Compared with existing instruction-tuned mathematical models, **Aha-Math-8B-Instruct** demonstrates remarkable and consistent performance gains across all evaluated benchmarks. On *MATH500*, our model achieves **82.37**, outperforming the previous best (*Trado-8B-Instruct*) by **+6.78** points. On *GSM8K*, it improves accuracy by **+2.94** (94.00 vs. 91.06). For the more challenging *AIME2024* and *AIME2025* competitions, **Aha-Math-8B-Instruct** yields gains of **+5.33** and **+1.00** points, respectively, indicating stronger generalization to advanced and unseen mathematical problems.
 
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+These results demonstrate that our post-training framework substantially enhances mathematical reasoning and generalization performance.
+
+| Model | MATH500 | GSM8K | AIME2024 | AIME2025 |
+|-------|---------|-------|----------|----------|
+| Qwen2.5-Math-7B-Instruct | 75.10 | 89.90 | 16.67 | 0.00 |
+| SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 |
+| Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 |
+| **Aha-Math-8B-Instruct (ours)** | **82.37** | **94.00** | **17.00** | **16.00** |
