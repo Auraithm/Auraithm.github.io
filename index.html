@@ -792,6 +792,19 @@
         .three-line-table .best {
           font-weight: 700;
         }
+        
+        /* 提升标签样式 */
+        .gain-badge {
+          display: inline-block;
+          margin-left: 0.35rem;
+          padding: 0.1rem 0.35rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: #0a7f2e;
+          background: #e6f4ea;
+          border-radius: 3px;
+          vertical-align: middle;
+        }
 
         /* 响应式：小屏幕字体微调 */
         @media (max-width: 640px) {
@@ -846,11 +859,11 @@
             </tr>
             <tr class="ours">
               <td><strong>Aha-8B-Instruct (ours)</strong></td>
-              <td class="best">81.60</td>
-              <td>90.65</td>
-              <td class="best">20.00</td>
-              <td class="best">19.17</td>
-              <td>44.81</td>
+              <td class="best">81.60<span class="gain-badge">+9.75</span></td>
+              <td>90.65<span class="gain-badge">+0.78</span></td>
+              <td class="best">20.00<span class="gain-badge">+10.83</span></td>
+              <td class="best">19.17<span class="gain-badge">+9.79</span></td>
+              <td>44.81<span class="gain-badge">+8.78</span></td>
             </tr>
           </tbody>
         </table>

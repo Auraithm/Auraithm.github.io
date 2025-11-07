@@ -58,4 +58,4 @@ These results demonstrate that **Aha-8B-Instruct**, as an 8B-scale model, achiev
 | Qwen2.5-32B-Instruct | 81.13 | **94.03** | 12.92 | 11.88 | **45.65** |
 | SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 | 36.03 |
 | Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 | 40.32 |
-| **Aha-8B-Instruct (ours)** | **81.60** | 90.65 | **20.00** | **19.17** | 44.81 |
+| **Aha-8B-Instruct (ours)** | **81.60** <sub>(+9.75)</sub> | 90.65 <sub>(+0.78)</sub> | **20.00** <sub>(+10.83)</sub> | **19.17** <sub>(+9.79)</sub> | 44.81 <sub>(+8.78)</sub> |
