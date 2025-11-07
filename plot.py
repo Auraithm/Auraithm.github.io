@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def plot_eval_results(models, datasets, scores, title="Model Comparison"):
-    colors = ["#A6CE83", "#5DAA8A", "#3C5873", "#C5D6F0", "#FFB482",]
+    colors = ["#A6CE83", "#5DAA8A", "#3C5873", "#FFB482",]
 
     num_datasets = len(datasets)
     num_models = len(models)
@@ -24,7 +24,7 @@ def plot_eval_results(models, datasets, scores, title="Model Comparison"):
                 edgecolor="#D0D0D0", zorder=3)
 
     # 坐标轴与文字设置
-    plt.xticks(x + (num_models - 1) * width / 2, datasets, rotation=30, ha='center', fontsize=11)
+    plt.xticks(x + (num_models - 1) * width / 2, datasets, rotation=0, ha='center', fontsize=11)
     plt.ylabel("Score", fontsize=12)
     plt.ylim(5, 105)
     plt.title(title, fontsize=14, weight='bold', pad=20)
@@ -35,6 +35,12 @@ def plot_eval_results(models, datasets, scores, title="Model Comparison"):
         spine.set_color("#BEBEBE")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
+    # 横轴设置为黑色并加粗,并设置在柱状图上方
+    ax.spines["bottom"].set_color('gray')
+    ax.spines["bottom"].set_linewidth(2)
+    ax.spines["bottom"].set_zorder(10)  # 设置较高的 zorder 让横轴在柱状图上方
+    ax.spines["left"].set_color('gray')
+    ax.spines["left"].set_linewidth(2)
 
     # 图例放在上方
     plt.legend(loc="upper center", bbox_to_anchor=(0.5, 1.06),
