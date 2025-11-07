@@ -388,6 +388,9 @@
 
 
 
+
+
+
 <!-- Teaser trace-->
 <section class="hero teaser" style="padding: 3rem 5rem;">
   <div class="container" style="max-width: 1300px !important; width: 1300px !important;">
@@ -540,18 +543,27 @@
             const metaParallel = document.getElementById('meta-parallel');
             const metaAutoregressive = document.getElementById('meta-autoregressive');
             let currentStep = 0;
+            let tickCount = 0; // 用于控制 autoregressive 的更新频率
 
-            function render(t) {
+            function render(t, tAuto) {
             const fragPrompt = document.createDocumentFragment();
             const fragOutput = document.createDocumentFragment();
             const fragOutputAuto = document.createDocumentFragment();
 
             let revealed = 0;
 
-            // 首先统计已经生成的 output token 数量
+            // 首先统计已经生成的 output token 数量（diffusion decoding）
             for (let i = 0; i < pieces.length; i++) {
                 if (steps[i] !== -1 && steps[i] <= t) {
                     revealed++;
+                }
+            }
+
+            // 计算 autoregressive 已生成的 token 数量（按 tAuto）
+            let revealedAuto = 0;
+            for (let i = 0; i < pieces.length; i++) {
+                if (steps[i] !== -1 && steps[i] <= tAuto) {
+                    revealedAuto++;
                 }
             }
 
@@ -574,7 +586,7 @@
                 span.textContent = piece;
                 fragPrompt.appendChild(span);
                 } else {
-                // Output tokens - Parallel decoding with mask
+                // Output tokens - Parallel decoding with mask (diffusion)
                 if (step <= t) {
                     // 已经生成的 token
                     span.className = 'unmasked' + (step === t ? ' new' : '');
@@ -589,9 +601,9 @@
                     }
                 }
                 
-                // Autoregressive decoding - 按顺序显示
-                if (outputTokenIndex < revealed) {
-                    spanAuto.className = 'unmasked' + (outputTokenIndex === revealed - 1 ? ' new' : '');
+                // Autoregressive decoding - 按顺序显示（速度是 diffusion 的一半）
+                if (outputTokenIndex < revealedAuto) {
+                    spanAuto.className = 'unmasked' + (outputTokenIndex === revealedAuto - 1 ? ' new' : '');
                     spanAuto.textContent = piece;
                     fragOutputAuto.appendChild(spanAuto);
                 }
@@ -614,16 +626,30 @@
             const parallelSpeed = t >= 0 ? (revealed / (t + 1)).toFixed(2) : 0;
             metaParallel.textContent = `Generation speed: ${parallelSpeed} tokens/step`;
             
-            // 自回归速度：固定为 1 token/step
-            metaAutoregressive.textContent = `Generation speed: 1.00 tokens/step`;
+            // 自回归速度：按实际步数计算
+            const autoSpeed = tAuto >= 0 ? (revealedAuto / (tAuto + 1)).toFixed(2) : 0;
+            metaAutoregressive.textContent = `Generation speed: 1 tokens/step`;
             }
 
             function autoPlay() {
-            render(currentStep);
-            currentStep++;
-            if (currentStep > maxStep) {
+            // autoregressive 每两个 tick 更新一次（速度是 diffusion 的一半）
+            const currentStepAuto = Math.floor(tickCount / 1.5);
+            
+            render(currentStep, currentStepAuto);
+            
+            // diffusion decoding 每个 tick 都更新
+            if (currentStep <= maxStep) {
+                currentStep++;
+            }
+            
+            tickCount++;
+            
+            // 当两个都完成时（autoregressive 需要 2*maxStep 个 tick），等待后重新开始
+            const autoMaxTicks = (maxStep + 1) * 2;
+            if (currentStep > maxStep && tickCount >= autoMaxTicks) {
                 setTimeout(() => {
                 currentStep = 0;
+                tickCount = 0;
                 autoPlay();
                 }, 2000);
             } else {
