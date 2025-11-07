@@ -17,7 +17,7 @@
 
 We introduce **Aha**, a high-performance open-source diffusion large language model (DLLM), alongside an open-source post-training framework specifically designed for efficient and scalable DLLM adaptation. Our framework supports long-context post-training up to 8K tokens, dramatically reducing computational cost while preserving model stability and convergence.
 
-Built upon this framework, Aha achieves state-of-the-art (SOTA) results across multiple mathematical and reasoning benchmarks, surpassing existing post-training approaches in both efficiency and generalization. This release establishes a practical, fully open foundation for advancing long-context DLLM post-training and adaptation research.
+Built upon this framework, Aha achieves state-of-the-art (SOTA) results among models of similar parameter scale, surpassing existing post-training approaches in both efficiency and generalization. This release establishes a practical, fully open foundation for advancing long-context DLLM post-training and adaptation research.
 
 ## HighLights
 
@@ -27,7 +27,7 @@ Built upon this framework, Aha achieves state-of-the-art (SOTA) results across m
 
 ## Method
 
-**Aha-Math-8B-Instruct** is developed based on **SDAR-8B-Chat** as the base model, and trained within our open-source **diffusion post-training framework** consisting of two stages: *Supervised Fine-Tuning (SFT)* and *Reinforcement Learning (RL)*.
+**Aha-8B-Instruct** is developed based on **SDAR-8B-Chat** as the base model, and trained within our open-source **diffusion post-training framework** consisting of two stages: *Supervised Fine-Tuning (SFT)* and *Reinforcement Learning (RL)*.
 
 ### Stage 1: Supervised Fine-Tuning (SFT)
 
@@ -35,20 +35,21 @@ We fine-tune the model with a generation length of **2K**, using a high-quality 
 
 ### Stage 2: Reinforcement Learning (RL)
 
-We adopt the **Trace-RL** algorithm to optimize reasoning robustness and long-context performance. The generation length is extended to **8K**, and we integrate a **diffusion-generated step map** during optimization to accelerate convergence and stabilize gradient updates.
+We adopt the **Trace-RL** algorithm to optimize reasoning robustness and long-context performance. The generation length is extended to **8K**, and we integrate a diffusion-generated step map during optimization to accelerate convergence and stabilize gradient updates.
 
-This two-stage design enables **Aha-Math-8B-Instruct** to achieve efficient long-context adaptation while preserving stability and strong generalization across mathematical reasoning benchmarks.
+This two-stage design enables **Aha-8B-Instruct** to achieve efficient long-context adaptation while preserving stability and strong generalization across mathematical reasoning benchmarks.
 
 
 ## Performance
 
-Compared with existing instruction-tuned mathematical models, **Aha-Math-8B-Instruct** demonstrates remarkable and consistent performance gains across all evaluated benchmarks. On *MATH500*, our model achieves **82.37**, outperforming the previous best (*Trado-8B-Instruct*) by **+6.78** points. On *GSM8K*, it improves accuracy by **+2.94** (94.00 vs. 91.06). For the more challenging *AIME2024* and *AIME2025* competitions, **Aha-Math-8B-Instruct** yields gains of **+5.33** and **+1.00** points, respectively, indicating stronger generalization to advanced and unseen mathematical problems.
+Compared with the base model **SDAR-8B-Chat** and other strong instruction-tuned models, **Aha-8B-Instruct** achieves consistent and substantial improvements across all benchmarks. On *MATH500*, our model reaches **81.60%** accuracy, surpassing the base model by **+9.75%** and outperforming the previous best **Trado-8B-Instruct** (75.59%) by a large margin. On *GSM8K*, **Aha-8B-Instruct** attains **90.65%**, with a **+0.78%** gain over **SDAR-8B-Chat**.
 
-These results demonstrate that our post-training framework substantially enhances mathematical reasoning and generalization performance.
+Notably, for the challenging *AIME2024* and *AIME2025* competitions, our model achieves **20.00%** and **19.17%**, improving upon the base model by **+10.83%** and **+9.79%**, respectively. On *OlympiadBench*, **Aha-8B-Instruct** also shows a strong gain of **+8.78%** (44.81% vs. 36.03%), demonstrating superior reasoning depth and problem-solving robustness. Remarkably, **Aha-8B-Instruct** delivers performance comparable to much larger models such as **Qwen2.5-32B-Instruct**.
 
-| Model | MATH500 | GSM8K | AIME2024 | AIME2025 |
-|-------|---------|-------|----------|----------|
-| Qwen2.5-Math-7B-Instruct | 75.10 | 89.90 | 16.67 | 0.00 |
-| SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 |
-| Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 |
-| **Aha-Math-8B-Instruct (ours)** | **82.37** | **94.00** | **17.00** | **16.00** |
+| Model | MATH500 | GSM8K | AIME2024 | AIME2025 | OlympiadBench |
+|-------|---------|-------|----------|----------|---------------|
+| Qwen2.5-7B-Instruct | 73.78 | 89.78 | 8.96 | 5.63 | 36.58 |
+| Qwen2.5-32B-Instruct | 81.13 | **94.03** | 12.92 | 11.88 | **45.65** |
+| SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 | 36.03 |
+| Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 | 40.32 |
+| **Aha-8B-Instruct (ours)** | **81.60** | 90.65 | **20.00** | **19.17** | 44.81 |
