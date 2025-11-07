@@ -352,6 +352,20 @@
 <!-- End TL;DR -->
 
 
+<!-- HighLights Section -->
+<section class="hero is-small is-light" style="padding: 5rem 1.5rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.5rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">HighLights</h2>
+    <div class="content" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7;">
+      <ul style="line-height: 1.8; margin-bottom: 0; list-style-position: outside; padding-left: 1.5rem;">
+        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">🚀 Training — Efficient Post-Training Framework:</strong> An open-source post-training framework specifically designed for DLLMs.</li>
+        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">⚡ Speed — Parallel Decoding:</strong> Up to 32× speedup in inference time.</li>
+        <li><strong style="font-weight: 600;">🧠 Performance — Advanced Science Reasoning Benchmarks:</strong> High scores on MATH and AIME.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- End HighLights Section -->
 
 
 
@@ -367,7 +381,7 @@
 
 <!-- Teaser trace-->
 <section class="hero teaser" style="padding: 3rem 5rem;">
-  <div class="container is-max-desktop">
+  <div class="container" style="max-width: 1000px !important; width: 1000px !important;">
     <div class="hero-body">
         <style>
         :root {
@@ -377,32 +391,29 @@
             --new: #0a7f2e;
             --mask: #aaa;
             --border: #ddd;
-            --prompt-bg: #f5f9ff;
+            --prompt-bg: transparent;
             --output-bg: #fdfdfd;
-            --prompt-border: #a3c4f3;
+            --prompt-border: #e0e0e0;
             --output-border: #c4e3c4;
         }
-        body {
+        .teaser .hero-body {
             font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-            margin: 20px auto;
-            max-width: 900px;
             color: var(--fg);
-            background: var(--bg);
         }
-        h1 {
+        .teaser h1 {
             font-size: 20px;
             margin: 0 0 12px 0;
             font-weight: 600;
             text-align: center;
             color: #333;
         }
-        #meta {
+        .teaser #meta {
             color: var(--muted);
             font-size: 13px;
             margin-bottom: 10px;
             text-align: center;
         }
-        .section {
+        .teaser .section {
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 20px;
@@ -410,43 +421,46 @@
             overflow-wrap: anywhere;
             line-height: 1.55;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            width: 100%;
+            width: 1000px !important;
+            max-width: 1000px !important;
             box-sizing: border-box;
         }
-        #prompt {
+        .teaser #prompt {
             background: var(--prompt-bg);
             border: 1px solid var(--prompt-border);
             min-height: 80px;
             padding: 16px 16px !important;
+            width: 1000px !important;
         }
-        #output {
+        .teaser #output {
             background: var(--output-bg);
             border: 1px solid var(--output-border);
             min-height: 800px;
             height: 800px;
             overflow: hidden;
             padding: 16px 16px !important;
+            width: 1000px !important;
         }
-        .masked {
+        .teaser .masked {
             color: transparent;
             text-shadow: 0 0 0 var(--mask);
         }
-        .unmasked {
+        .teaser .unmasked {
             color: inherit;
         }
-        .new {
+        .teaser .new {
             background: #e9f7ee;
             outline: 1px dashed #b7e1c3;
             animation: fadeIn 0.3s ease-out;
         }
-        .prompt {
-            color: #004b9b;
-            font-weight: 600;
+        .teaser .prompt {
+            color: #6b7280;
+            font-weight: 500;
         }
-        .special {
+        .teaser .special {
             color: var(--muted);
         }
-        .maskToken {
+        .teaser .maskToken {
             display:inline-block;
             width:9ch;
             text-align:center;
@@ -459,8 +473,7 @@
         }
         </style>
 
-        <body>
-        <h1>🧩 Token Generation Trace Viewer</h1>
+        <h2 class="title is-3 has-text-centered" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin-bottom: 2rem;">Decoding Visualization</h2>
         <div id="meta"></div>
         
         <div id="prompt" class="section"></div>
@@ -536,7 +549,6 @@
             promptEl.appendChild(fragPrompt);
             outputEl.innerHTML = '';
             outputEl.appendChild(fragOutput);
-            
             // 自动滚动到底部，显示最新内容
             outputEl.scrollTop = outputEl.scrollHeight;
             
@@ -564,22 +576,6 @@
   </div>
 </section>
 
-
-
-<!-- HighLights Section -->
-<section class="hero is-small is-light" style="padding: 5rem 1.5rem;">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.5rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">HighLights</h2>
-    <div class="content" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7;">
-      <ul style="line-height: 1.8; margin-bottom: 0; list-style-position: outside; padding-left: 1.5rem;">
-        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">🚀 Training — Efficient Post-Training Framework:</strong> An open-source post-training framework specifically designed for DLLMs.</li>
-        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">⚡ Speed — Parallel Decoding:</strong> Up to 32× speedup in inference time.</li>
-        <li><strong style="font-weight: 600;">🧠 Performance — Advanced Science Reasoning Benchmarks:</strong> High scores on MATH and AIME.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-<!-- End HighLights Section -->
 
 
 <!-- Method Section -->

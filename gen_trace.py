@@ -5003,14 +5003,15 @@ data = {
     "is_special": is_special,
     "prompt_length": len(prompt_token_ids),
 }
-SPEED = 1000  # milliseconds per step
+SPEED = 100  # milliseconds per step
 BLOCK_SIZE = 4
 OUTPUT_HEIGHT = 800  # output section height in pixels
+TRACE_WIDTH = 1000  # trace viewer width in pixels
 # --- self-contained HTML (auto-play with loop, no controls) ---
 html = f"""
 <!-- Teaser trace-->
 <section class="hero teaser" style="padding: 3rem 5rem;">
-  <div class="container is-max-desktop">
+  <div class="container" style="max-width: {TRACE_WIDTH}px !important; width: {TRACE_WIDTH}px !important;">
     <div class="hero-body">
         <style>
         :root {{
@@ -5020,32 +5021,29 @@ html = f"""
             --new: #0a7f2e;
             --mask: #aaa;
             --border: #ddd;
-            --prompt-bg: #f5f9ff;
+            --prompt-bg: transparent;
             --output-bg: #fdfdfd;
-            --prompt-border: #a3c4f3;
+            --prompt-border: #e0e0e0;
             --output-border: #c4e3c4;
         }}
-        body {{
+        .teaser .hero-body {{
             font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-            margin: 20px auto;
-            max-width: 900px;
             color: var(--fg);
-            background: var(--bg);
         }}
-        h1 {{
+        .teaser h1 {{
             font-size: 20px;
             margin: 0 0 12px 0;
             font-weight: 600;
             text-align: center;
             color: #333;
         }}
-        #meta {{
+        .teaser #meta {{
             color: var(--muted);
             font-size: 13px;
             margin-bottom: 10px;
             text-align: center;
         }}
-        .section {{
+        .teaser .section {{
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 20px;
@@ -5053,43 +5051,46 @@ html = f"""
             overflow-wrap: anywhere;
             line-height: 1.55;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            width: 100%;
+            width: {TRACE_WIDTH}px !important;
+            max-width: {TRACE_WIDTH}px !important;
             box-sizing: border-box;
         }}
-        #prompt {{
+        .teaser #prompt {{
             background: var(--prompt-bg);
             border: 1px solid var(--prompt-border);
             min-height: 80px;
             padding: 16px 16px !important;
+            width: {TRACE_WIDTH}px !important;
         }}
-        #output {{
+        .teaser #output {{
             background: var(--output-bg);
             border: 1px solid var(--output-border);
             min-height: {OUTPUT_HEIGHT}px;
             height: {OUTPUT_HEIGHT}px;
-            overflow-y: auto;
+            overflow: hidden;
             padding: 16px 16px !important;
+            width: {TRACE_WIDTH}px !important;
         }}
-        .masked {{
+        .teaser .masked {{
             color: transparent;
             text-shadow: 0 0 0 var(--mask);
         }}
-        .unmasked {{
+        .teaser .unmasked {{
             color: inherit;
         }}
-        .new {{
+        .teaser .new {{
             background: #e9f7ee;
             outline: 1px dashed #b7e1c3;
             animation: fadeIn 0.3s ease-out;
         }}
-        .prompt {{
-            color: #004b9b;
-            font-weight: 600;
+        .teaser .prompt {{
+            color: #6b7280;
+            font-weight: 500;
         }}
-        .special {{
+        .teaser .special {{
             color: var(--muted);
         }}
-        .maskToken {{
+        .teaser .maskToken {{
             display:inline-block;
             width:9ch;
             text-align:center;
@@ -5102,8 +5103,7 @@ html = f"""
         }}
         </style>
 
-        <body>
-        <h1>🧩 Token Generation Trace Viewer</h1>
+        <h2 class="title is-3 has-text-centered" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin-bottom: 2rem;">Decoding Visualization</h2>
         <div id="meta"></div>
         
         <div id="prompt" class="section"></div>
@@ -5179,6 +5179,9 @@ html = f"""
             promptEl.appendChild(fragPrompt);
             outputEl.innerHTML = '';
             outputEl.appendChild(fragOutput);
+            // 自动滚动到底部，显示最新内容
+            outputEl.scrollTop = outputEl.scrollHeight;
+            
             // revealed 是已揭示的输出 token 数量,t 是当前步数(从0开始)
             // 每步生成的 token 数 = revealed / (t + 1)
             meta.textContent = `Generation speed: ${{(t >= 0 ? (revealed / (t + 1)).toFixed(2) : 0)}} tokens/step`;
@@ -5219,7 +5222,7 @@ try:
     
     # 查找 <!-- Teaser trace--> 部分的开始和结束位置
     start_marker = "<!-- Teaser trace-->"
-    end_marker = "<!-- HighLights Section -->"
+    end_marker = "<!-- Method Section -->"
     
     start_idx = index_content.find(start_marker)
     end_idx = index_content.find(end_marker)
