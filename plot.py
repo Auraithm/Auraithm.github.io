@@ -45,11 +45,22 @@ def plot_eval_results(models, datasets, scores, title="Model Comparison"):
 
 
 if __name__ == "__main__":
-    models = ["Qwen2.5-7B-Instruct", "Qwen2.5-32B-Instruct", "SDAR-8B-Chat", "Trado-8B-Instruct", "Aha-Math-8B-Instruct(ours)"]
+    # models = ["Qwen2.5-7B-Instruct", "Qwen2.5-32B-Instruct", "SDAR-8B-Chat", "Trado-8B-Instruct", "Aha-Math-8B-Instruct(ours)"]
+    # datasets = ["MATH500", "GSM8K", "AIME2024", "AIME2025", "OlympiadBench"]
+    # scores = [
+    #     [73.78, 89.78, 8.96, 5.63, 36.58],
+    #     [81.13, 94.03, 12.92, 11.88, 45.65],
+    #     [71.85, 89.87, 9.17, 9.38, 36.03],
+    #     [75.59, 91.06, 11.67, 15.00, 40.32],
+    #     [81.60, 90.65, 20.00, 19.17, 44.81]
+    # ]
+
+    # plot_eval_results(models, datasets, scores, title="Accuracy")
+    
+    models = ["Qwen2.5-7B-Instruct", "SDAR-8B-Chat", "Trado-8B-Instruct", "Aha-Math-8B-Instruct (ours)"]
     datasets = ["MATH500", "GSM8K", "AIME2024", "AIME2025", "OlympiadBench"]
     scores = [
         [73.78, 89.78, 8.96, 5.63, 36.58],
-        [81.13, 94.03, 12.92, 11.88, 45.65],
         [71.85, 89.87, 9.17, 9.38, 36.03],
         [75.59, 91.06, 11.67, 15.00, 40.32],
         [81.60, 90.65, 20.00, 19.17, 44.81]
