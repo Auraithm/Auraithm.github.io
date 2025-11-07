@@ -5006,7 +5006,8 @@ data = {
 SPEED = 100  # milliseconds per step
 BLOCK_SIZE = 4
 OUTPUT_HEIGHT = 800  # output section height in pixels
-TRACE_WIDTH = 1000  # trace viewer width in pixels
+TRACE_WIDTH = 1300  # trace viewer width in pixels
+HALF_WIDTH = TRACE_WIDTH // 2  # half width for each output box
 # --- self-contained HTML (auto-play with loop, no controls) ---
 html = f"""
 <!-- Teaser trace-->
@@ -5062,14 +5063,37 @@ html = f"""
             padding: 16px 16px !important;
             width: {TRACE_WIDTH}px !important;
         }}
-        .teaser #output {{
+        .teaser .output-container {{
+            display: flex;
+            gap: 20px;
+            width: {TRACE_WIDTH}px !important;
+        }}
+        .teaser .output-box {{
+            flex: 1;
+            min-width: 0;
+        }}
+        .teaser .output-title {{
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            text-align: center;
+            color: #555;
+        }}
+        .teaser .output-speed {{
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            text-align: center;
+        }}
+        .teaser #output, .teaser #output-autoregressive {{
             background: var(--output-bg);
             border: 1px solid var(--output-border);
             min-height: {OUTPUT_HEIGHT}px;
             height: {OUTPUT_HEIGHT}px;
             overflow: hidden;
             padding: 16px 16px !important;
-            width: {TRACE_WIDTH}px !important;
+            width: 100% !important;
+            box-sizing: border-box;
         }}
         .teaser .masked {{
             color: transparent;
@@ -5104,10 +5128,21 @@ html = f"""
         </style>
 
         <h2 class="title is-3 has-text-centered" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin-bottom: 2rem;">Decoding Visualization</h2>
-        <div id="meta"></div>
         
         <div id="prompt" class="section"></div>
-        <div id="output" class="section"></div>
+        
+        <div class="output-container">
+            <div class="output-box">
+                <div class="output-title">Diffusion Decoding (with MASK)</div>
+                <div id="meta-parallel" class="output-speed"></div>
+                <div id="output" class="section"></div>
+            </div>
+            <div class="output-box">
+                <div class="output-title">Autoregressive Decoding</div>
+                <div id="meta-autoregressive" class="output-speed"></div>
+                <div id="output-autoregressive" class="section"></div>
+            </div>
+        </div>
 
         <script id="data" type="application/json">{json.dumps(data)}</script>
         <script>
@@ -5123,12 +5158,15 @@ html = f"""
             const maxStep = Math.max(...steps);
             const promptEl = document.getElementById('prompt');
             const outputEl = document.getElementById('output');
-            const meta = document.getElementById('meta');
+            const outputAutoEl = document.getElementById('output-autoregressive');
+            const metaParallel = document.getElementById('meta-parallel');
+            const metaAutoregressive = document.getElementById('meta-autoregressive');
             let currentStep = 0;
 
             function render(t) {{
             const fragPrompt = document.createDocumentFragment();
             const fragOutput = document.createDocumentFragment();
+            const fragOutputAuto = document.createDocumentFragment();
 
             let revealed = 0;
 
@@ -5148,6 +5186,7 @@ html = f"""
 
             for (let i = 0; i < pieces.length; i++) {{
                 const span = document.createElement('span');
+                const spanAuto = document.createElement('span');
                 const piece = pieces[i];
                 const step = steps[i];
 
@@ -5157,7 +5196,7 @@ html = f"""
                 span.textContent = piece;
                 fragPrompt.appendChild(span);
                 }} else {{
-                // Output tokens
+                // Output tokens - Parallel decoding with mask
                 if (step <= t) {{
                     // 已经生成的 token
                     span.className = 'unmasked' + (step === t ? ' new' : '');
@@ -5171,6 +5210,14 @@ html = f"""
                         fragOutput.appendChild(span);
                     }}
                 }}
+                
+                // Autoregressive decoding - 按顺序显示
+                if (outputTokenIndex < revealed) {{
+                    spanAuto.className = 'unmasked' + (outputTokenIndex === revealed - 1 ? ' new' : '');
+                    spanAuto.textContent = piece;
+                    fragOutputAuto.appendChild(spanAuto);
+                }}
+                
                 outputTokenIndex++;
                 }}
             }}
@@ -5179,12 +5226,18 @@ html = f"""
             promptEl.appendChild(fragPrompt);
             outputEl.innerHTML = '';
             outputEl.appendChild(fragOutput);
+            outputAutoEl.innerHTML = '';
+            outputAutoEl.appendChild(fragOutputAuto);
             // 自动滚动到底部，显示最新内容
             outputEl.scrollTop = outputEl.scrollHeight;
+            outputAutoEl.scrollTop = outputAutoEl.scrollHeight;
             
-            // revealed 是已揭示的输出 token 数量,t 是当前步数(从0开始)
-            // 每步生成的 token 数 = revealed / (t + 1)
-            meta.textContent = `Generation speed: ${{(t >= 0 ? (revealed / (t + 1)).toFixed(2) : 0)}} tokens/step`;
+            // 并行解码速度：每步生成的 token 数 = revealed / (t + 1)
+            const parallelSpeed = t >= 0 ? (revealed / (t + 1)).toFixed(2) : 0;
+            metaParallel.textContent = `Generation speed: ${{parallelSpeed}} tokens/step`;
+            
+            // 自回归速度：固定为 1 token/step
+            metaAutoregressive.textContent = `Generation speed: 1.00 tokens/step`;
             }}
 
             function autoPlay() {{
