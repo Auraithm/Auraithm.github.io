@@ -4978,6 +4978,12 @@ output_step_map = [
 # 根据len(output_token_ids)裁剪output_step_map
 output_step_map = output_step_map[:len(output_token_ids)]
 step_map = [-1] * len(prompt_token_ids) + output_step_map
+
+# 为 autoregressive 生成顺序的 step map
+# Autoregressive 按顺序生成，每个 token 对应一个递增的 step
+output_step_map_auto = list(range(len(output_token_ids)))
+step_map_auto = [-1] * len(prompt_token_ids) + output_step_map_auto
+
 ### output trace viewer
 pieces = []
 prev = ""
@@ -5000,6 +5006,7 @@ import json, os
 data = {
     "pieces": pieces,
     "step_map": step_map,
+    "step_map_auto": step_map_auto,  # 为 autoregressive 添加顺序的 step map
     "is_special": is_special,
     "prompt_length": len(prompt_token_ids),
 }
@@ -5151,18 +5158,20 @@ html = f"""
             piece.replace(/\\f/g, '\\\\f').replace(/\\t/g, '\\\\t')
                 .replace(/\\r/g, '\\\\r').replace(/\\v/g, '\\\\v')
             );
-            const steps  = DATA.step_map;
+            const steps  = DATA.step_map;  // diffusion decoding 的 step map
+            const stepsAuto = DATA.step_map_auto;  // autoregressive decoding 的顺序 step map
             const isSpec = DATA.is_special;
             const promptLength = DATA.prompt_length;
 
             const maxStep = Math.max(...steps);
+            const maxStepAuto = Math.max(...stepsAuto);
             const promptEl = document.getElementById('prompt');
             const outputEl = document.getElementById('output');
             const outputAutoEl = document.getElementById('output-autoregressive');
             const metaParallel = document.getElementById('meta-parallel');
             const metaAutoregressive = document.getElementById('meta-autoregressive');
             let currentStep = 0;
-            let tickCount = 0; // 用于控制 autoregressive 的更新频率
+            let currentStepAuto = 0;  // autoregressive 的当前步数
 
             function render(t, tAuto) {{
             const fragPrompt = document.createDocumentFragment();
@@ -5178,10 +5187,10 @@ html = f"""
                 }}
             }}
 
-            // 计算 autoregressive 已生成的 token 数量（按 tAuto）
+            // 计算 autoregressive 已生成的 token 数量（使用 autoregressive 的 step map）
             let revealedAuto = 0;
             for (let i = 0; i < pieces.length; i++) {{
-                if (steps[i] !== -1 && steps[i] <= tAuto) {{
+                if (stepsAuto[i] !== -1 && stepsAuto[i] <= tAuto) {{
                     revealedAuto++;
                 }}
             }}
@@ -5198,6 +5207,7 @@ html = f"""
                 const spanAuto = document.createElement('span');
                 const piece = pieces[i];
                 const step = steps[i];
+                const stepAuto = stepsAuto[i];
 
                 if (step === -1) {{
                 // Prompt tokens
@@ -5220,9 +5230,9 @@ html = f"""
                     }}
                 }}
                 
-                // Autoregressive decoding - 按顺序显示（速度是 diffusion 的一半）
-                if (outputTokenIndex < revealedAuto) {{
-                    spanAuto.className = 'unmasked' + (outputTokenIndex === revealedAuto - 1 ? ' new' : '');
+                // Autoregressive decoding - 按顺序显示，每 step 生成 1 个 token
+                if (stepAuto !== -1 && stepAuto <= tAuto) {{
+                    spanAuto.className = 'unmasked' + (stepAuto === tAuto ? ' new' : '');
                     spanAuto.textContent = piece;
                     fragOutputAuto.appendChild(spanAuto);
                 }}
@@ -5243,17 +5253,15 @@ html = f"""
             
             // 并行解码速度：每步生成的 token 数 = revealed / (t + 1)
             const parallelSpeed = t >= 0 ? (revealed / (t + 1)).toFixed(2) : 0;
-            metaParallel.textContent = `Generation speed: ${{parallelSpeed}} tokens/step`;
+            const parallelSteps = t >= 0 ? t + 1 : 0;
+            metaParallel.textContent = `Generation speed: ${{parallelSpeed}} tokens/step | Tokens: ${{revealed}} | Steps: ${{parallelSteps}}`;
             
-            // 自回归速度：按实际步数计算
-            const autoSpeed = tAuto >= 0 ? (revealedAuto / (tAuto + 1)).toFixed(2) : 0;
-            metaAutoregressive.textContent = `Generation speed: 1 tokens/step`;
+            // 自回归速度：每步生成 1 个 token
+            const autoSteps = tAuto >= 0 ? tAuto + 1 : 0;
+            metaAutoregressive.textContent = `Generation speed: 1.00 tokens/step | Tokens: ${{revealedAuto}} | Steps: ${{autoSteps}}`;
             }}
 
             function autoPlay() {{
-            // autoregressive 每两个 tick 更新一次（速度是 diffusion 的一半）
-            const currentStepAuto = Math.floor(tickCount / 1.5);
-            
             render(currentStep, currentStepAuto);
             
             // diffusion decoding 每个 tick 都更新
@@ -5261,14 +5269,16 @@ html = f"""
                 currentStep++;
             }}
             
-            tickCount++;
+            // autoregressive 每 SPEED_RATIO 个 tick 更新一次（速度比 diffusion 慢）
+            if (currentStepAuto <= maxStepAuto) {{
+                currentStepAuto++;
+            }}
             
-            // 当两个都完成时（autoregressive 需要 2*maxStep 个 tick），等待后重新开始
-            const autoMaxTicks = (maxStep + 1) * 2;
-            if (currentStep > maxStep && tickCount >= autoMaxTicks) {{
+            // 当两个都完成时，等待后重新开始
+            if (currentStep > maxStep && currentStepAuto > maxStepAuto) {{
                 setTimeout(() => {{
                 currentStep = 0;
-                tickCount = 0;
+                currentStepAuto = 0;
                 autoPlay();
                 }}, 2000);
             }} else {{
@@ -5276,6 +5286,7 @@ html = f"""
             }}
             }}
             autoPlay();
+            
         </script>
         </body>
     </div>
