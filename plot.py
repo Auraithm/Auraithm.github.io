@@ -51,10 +51,17 @@ def plot_eval_results(models, datasets, scores):
     fig, ax = plt.subplots(figsize=(12, 6), dpi=300)
 
     # 绘制圆角柱子
-    for i, (_, vals) in enumerate(zip(models, scores)):
+    from matplotlib.patches import Patch
+    legend_handles = []
+    
+    for i, (model, vals) in enumerate(zip(models, scores)):
+        color = colors[i % len(colors)]
         for j, y in enumerate(vals):
             x = x_center[j] + i * (width + gap)
-            draw_perfect_round_bar(ax, x, width, y, radius=width * 0.5, color=colors[i % len(colors)])
+            draw_perfect_round_bar(ax, x, width, y, radius=width * 0.5, color=color)
+        
+        # 创建图例handle
+        legend_handles.append(Patch(facecolor=color, label=model))
 
     # X轴设置
     ax.set_xticks(x_center + (num_models - 1) * (width + gap) / 2)
@@ -67,8 +74,8 @@ def plot_eval_results(models, datasets, scores):
     ax.set_ylabel("Accuracy", fontsize=14)
     ax.set_ylim(0, 105)
 
-    ax.legend(models, loc="upper center", bbox_to_anchor=(0.5, 1.06),
-              ncol=len(models), frameon=False)
+    ax.legend(handles=legend_handles, loc="upper center", bbox_to_anchor=(0.5, 1.06),
+              ncol=len(models), frameon=False, fontsize=12)
 
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)

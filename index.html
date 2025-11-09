@@ -268,9 +268,9 @@
                   <span class="author-block">
                     <a href="#" target="_blank">Zengfeng Huang</a><sup>1,2</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Ziwei He</a><sup>2</sup>,</span>
+                    <a href="#" target="_blank">Ziwei He</a><sup>2,†</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Xipeng Qiu</a><sup>1,2</sup>
+                    <a href="#" target="_blank">Xipeng Qiu</a><sup>1,2,†</sup>
                   </span>
                   </div>
 
@@ -342,8 +342,9 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">TL;DR</h2>
         <div class="content has-text-left" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7;">
-          <p style="margin-bottom: 1rem;">We propose <strong style="font-weight: 600;">Aha-DLLM</strong>, a block-attention based diffusion large language model (DLLM) post-training framework that supports two-stage training: Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL).</p>
-          <p>Based on this framework, we perform two-stage post-training on SDAR-8B-Chat and release <strong style="font-weight: 600;">Aha-8B-Instruct</strong>, a high-performance, open-source DLLM that achieves state-of-the-art (SOTA) results among models of comparable scale.</p>
+          <p style="margin-bottom: 1rem;">We propose <strong style="font-weight: 600;">GTPO (Group Trajectory Policy Optimization)</strong>, a reinforcement learning algorithm specially designed for Diffusion Language Models (DLLMs). It is inspired by Trace-RL's trajectory-level training objective and incorporates the group-based advantage mechanism from GRPO. Importantly, we achieve a perfect and unbiased implementation of RL theory for DLLMs.</p>
+          <p style="margin-bottom: 1rem;">Furthermore, we develop a complete training framework, GTPO-DLLM, based on GTPO, which includes a two-stage post-training pipeline: SFT and RL. We integrate the <strong>Lmdeploy</strong> inference framework to enable efficient rollout and step_map feedback, and use <strong>Accelerate</strong> to support multi-node training.</p>
+          <p>Based on this training framework, we employ the post-training on SDAR-8B-Chat and successfully train and release a new diffusion language model - <strong style="font-weight: 600;">Aha-8B-Instruct</strong>, a high-performance, open-source DLLM that achieves state-of-the-art (SOTA) results among models of comparable scale.</p>
         </div>
       </div>
     </div>
@@ -690,8 +691,7 @@
           Stage 1: Supervised Fine-Tuning (SFT)
         </h3>
         <p style="margin-bottom: 0;">
-          We fine-tune the model using a proprietary high-quality mathematical dataset with a generation length of <strong>8K</strong>. 
-          Following the data curation strategy from <strong>DAPO</strong>, we apply rigorous filtering to ensure data quality, diversity, and correctness, which lays a solid foundation for subsequent RL training.
+          We prepare a proprietary, high-quality mathematical dataset with a generation length of <strong>8K</strong> tokens. We adopt a random-masking strategy to construct the training data for model fine-tuning.
         </p>
       </div>
 
@@ -700,8 +700,7 @@
           Stage 2: Reinforcement Learning (RL)
         </h3>
         <p style="margin-bottom: 0;">
-          We design an <strong>online RL algorithm</strong> specifically tailored for DLLMs, training with a generation length of <strong>8K</strong>. 
-          This algorithm integrates diffusion-specific optimization strategies, including a diffusion-generated step map to accelerate convergence and stabilize gradient updates. The online learning paradigm enables dynamic exploration and continuous improvement during the training process.
+          Inspired by the theoretical foundations of <strong>TraceRL</strong> and <strong>GRPO</strong>, we design an RL framework -- <strong>GTPO</strong>, specifically tailored for DLLMs, training with a generation length of <strong>8K</strong>. Importantly, we achieve a perfect and unbiased implementation of RL theory for DLLMs, ensuring complete consistency between the optimization objective and the actual training process. This algorithm integrates diffusion-specific optimization strategies, including a diffusion-generated step map to accelerate convergence and stabilize gradient updates. The online learning paradigm enables dynamic exploration and continuous improvement during the training process.
         </p>
       </div>
 
@@ -721,22 +720,7 @@
 
       <div class="content-has-text-justified" style="margin-bottom: 2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.05rem; line-height: 1.7;">
         <p style="margin-bottom: 1rem;">
-          We compare <strong style="font-weight: 600;">Aha-8B-Instruct</strong> with both autoregressive (AR) models (<strong style="font-weight: 600;">Qwen2.5-7B-Instruct</strong> and <strong style="font-weight: 600;">Qwen2.5-32B-Instruct</strong>) and diffusion language models (DLLMs, including <strong style="font-weight: 600;">SDAR-8B-Chat</strong> and <strong style="font-weight: 600;">Trado-8B-Instruct</strong>). 
-          <strong style="font-weight: 600;">Aha-8B-Instruct</strong> demonstrates exceptional performance across mathematical reasoning benchmarks, achieving state-of-the-art results among DLLMs and even surpassing much larger AR models.
-        </p>
-        <p style="margin-bottom: 1rem;">
-          On <em>MATH500</em>, our model reaches <strong style="font-weight: 600;">81.60%</strong> accuracy, not only surpassing the base model <strong style="font-weight: 600;">SDAR-8B-Chat</strong> (71.85%) by <strong style="font-weight: 600;">+9.75%</strong> and outperforming <strong style="font-weight: 600;">Trado-8B-Instruct</strong> (75.59%) by <strong style="font-weight: 600;">+6.01%</strong>, but also exceeding the much larger <strong style="font-weight: 600;">Qwen2.5-32B-Instruct</strong> (81.13%) to achieve the best performance across all compared models.
-        </p>
-        <p style="margin-bottom: 1rem;">
-          On the highly challenging competition benchmarks, <strong style="font-weight: 600;">Aha-8B-Instruct</strong> shows remarkable capabilities. For <em>AIME2024</em>, our model achieves <strong style="font-weight: 600;">20.00%</strong>, dramatically outperforming all baselines including <strong style="font-weight: 600;">Qwen2.5-32B-Instruct</strong> (12.92%) by <strong style="font-weight: 600;">+7.08%</strong>, <strong style="font-weight: 600;">Trado-8B-Instruct</strong> (11.67%) by <strong style="font-weight: 600;">+8.33%</strong>, and the base model (9.17%) by <strong style="font-weight: 600;">+10.83%</strong>. 
-          Similarly, on <em>AIME2025</em>, <strong style="font-weight: 600;">Aha-8B-Instruct</strong> attains <strong style="font-weight: 600;">19.17%</strong>, substantially surpassing <strong style="font-weight: 600;">Trado-8B-Instruct</strong> (15.00%) by <strong style="font-weight: 600;">+4.17%</strong>, <strong style="font-weight: 600;">Qwen2.5-32B-Instruct</strong> (11.88%) by <strong style="font-weight: 600;">+7.29%</strong>, and the base model (9.38%) by <strong style="font-weight: 600;">+9.79%</strong>.
-        </p>
-        <p style="margin-bottom: 1rem;">
-          On <em>OlympiadBench</em>, <strong style="font-weight: 600;">Aha-8B-Instruct</strong> achieves <strong style="font-weight: 600;">44.81%</strong>, showing a significant improvement of <strong style="font-weight: 600;">+8.78%</strong> over <strong style="font-weight: 600;">SDAR-8B-Chat</strong> (36.03%) and <strong style="font-weight: 600;">+4.49%</strong> over <strong style="font-weight: 600;">Trado-8B-Instruct</strong> (40.32%), approaching the performance of <strong style="font-weight: 600;">Qwen2.5-32B-Instruct</strong> (45.65%). 
-          On <em>GSM8K</em>, our model attains <strong style="font-weight: 600;">90.65%</strong>, maintaining competitive performance with the base model (89.87%).
-        </p>
-        <p>
-          These results demonstrate that <strong style="font-weight: 600;">Aha-8B-Instruct</strong>, as an 8B-scale model, achieves performance comparable to or exceeding much larger 32B models on most benchmarks, showcasing the effectiveness of our diffusion post-training framework.
+          <strong style="font-weight: 600;">Aha-8B-Instruct</strong> achieves state-of-the-art results among DLLMs across mathematical reasoning benchmarks. Highlights include <strong style="font-weight: 600;">81.60%</strong> on MATH500 (surpassing the base model by <strong style="font-weight: 600;">+9.75%</strong>), <strong style="font-weight: 600;">20.00%</strong> on AIME2024 and <strong style="font-weight: 600;">19.17%</strong> on AIME2025 (dramatically outperforming all baselines), and <strong style="font-weight: 600;">44.81%</strong> on OlympiadBench. Our 8B model achieves performance comparable to or exceeding much larger 32B models on most benchmarks.
         </p>
       </div>
 
