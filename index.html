@@ -342,7 +342,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">TL;DR</h2>
         <div class="content has-text-left" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7;">
-          <p style="margin-bottom: 1rem;">We propose <strong style="font-weight: 600;">GTPO (Group Trajectory Policy Optimization)</strong>, a reinforcement learning algorithm specially designed for Diffusion Language Models (DLLMs). It is inspired by Trace-RL's trajectory-level training objective and incorporates the group-based advantage mechanism from GRPO. Importantly, we achieve a perfect and unbiased implementation of RL theory for DLLMs.</p>
+          <p style="margin-bottom: 1rem;">We propose <strong style="font-weight: 600;">GTPO (Group Trajectory Policy Optimization)</strong>, a reinforcement learning algorithm specially designed for Diffusion Language Models (DLLMs). It is inspired by Trace-RL's trajectory-level training objective and incorporates the group-based advantage mechanism from GRPO. Importantly, we achieve an unbiased implementation of RL theory for DLLMs.</p>
           <p style="margin-bottom: 1rem;">Furthermore, we develop a complete training framework, GTPO-DLLM, based on GTPO, which includes a two-stage post-training pipeline: SFT and RL. We integrate the <strong>Lmdeploy</strong> inference framework to enable efficient rollout and step_map feedback, and use <strong>Accelerate</strong> to support multi-node training.</p>
           <p>Based on this training framework, we employ the post-training on SDAR-8B-Chat and successfully train and release a new diffusion language model - <strong style="font-weight: 600;">Aha-8B-Instruct</strong>, a high-performance, open-source DLLM that achieves state-of-the-art (SOTA) results among models of comparable scale.</p>
         </div>
@@ -359,9 +359,9 @@
     <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.5rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">HighLights</h2>
     <div class="content" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7;">
       <ul style="line-height: 1.8; margin-bottom: 0; list-style-position: outside; padding-left: 1.5rem;">
-        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">🚀 Efficient Training:</strong> Supports <strong>Accelerate</strong> distributed training and <strong>LMDeploy</strong> inference engine for efficient rollout, significantly accelerating the training process.</li>
-        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">⚡ Speed Optimization:</strong> Integrates <strong>speed reward</strong> mechanism to optimize inference speed at the training level, enabling faster generation without sacrificing quality.</li>
-        <li><strong style="font-weight: 600;">🧠 SOTA Performance:</strong> Achieves state-of-the-art results on most mathematical reasoning benchmarks, including MATH, GSM8K, AIME, and OlympiadBench.</li>
+        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">🎯 Novel RL Algorithm:</strong> Proposes <strong>GTPO (Group Trajectory Policy Optimization)</strong>, an RL algorithm inspired by TraceRL and GRPO, specifically tailored for DLLMs. It achieves unbiased implementation with complete consistency between optimization objectives and training process, and integrates dynamic sampling from DAPO during rollout to filter out low-quality data.</li>
+        <li style="margin-bottom: 0.75rem;"><strong style="font-weight: 600;">🚀 Efficient Training & Inference:</strong> Supports <strong>Accelerate</strong> distributed training and <strong>LMDeploy</strong> inference engine for efficient rollout, while integrating <strong>speed reward</strong> mechanism to optimize inference speed at the training level, enabling both faster training and generation without sacrificing quality.</li>
+        <li><strong style="font-weight: 600;">🧠 SOTA Performance:</strong> At the 8B scale, our model achieves state-of-the-art results among both autoregressive (AR) models and diffusion language models (DLLMs) across multiple mathematical reasoning benchmarks. Specifically, it reaches <strong>81.60%</strong> on MATH500, <strong>20.00%</strong> on AIME2024, and <strong>19.17%</strong> on AIME2025, surpassing all 8B baselines and even outperforming the 32B Qwen2.5-32B-Instruct model on AIME benchmarks.</li>
       </ul>
     </div>
   </div>
@@ -700,7 +700,7 @@
           Stage 2: Reinforcement Learning (RL)
         </h3>
         <p style="margin-bottom: 0;">
-          Inspired by the theoretical foundations of <strong>TraceRL</strong> and <strong>GRPO</strong>, we design an RL framework -- <strong>GTPO</strong>, specifically tailored for DLLMs, training with a generation length of <strong>8K</strong>. Importantly, we achieve a perfect and unbiased implementation of RL theory for DLLMs, ensuring complete consistency between the optimization objective and the actual training process. This algorithm integrates diffusion-specific optimization strategies, including a diffusion-generated step map to accelerate convergence and stabilize gradient updates. The online learning paradigm enables dynamic exploration and continuous improvement during the training process.
+          Inspired by the theoretical foundations of <strong>TraceRL</strong> and <strong>GRPO</strong>, we design an RL framework -- <strong>GTPO</strong>, specifically tailored for DLLMs, training with a generation length of <strong>8K</strong>. We achieve an unbiased implementation of RL theory for DLLMs, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
         </p>
       </div>
 
