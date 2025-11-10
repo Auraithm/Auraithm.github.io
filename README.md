@@ -1,8 +1,8 @@
-# Aha: A High-Performance and Efficient Diffusion Language Model
+# GTPO-Trainer: An Efficient Training Framework for Diffusion Language Models
 
-[Ying Zhu](#)<sup>1,2</sup>, [Jiaxin Wan](#)<sup>3,2</sup>, [Tianyi Liang](#)<sup>4,2</sup>, [Xu Guo](#)<sup>1,2</sup>, [Xiaoran Liu](#)<sup>1,2</sup>, [Zengfeng Huang](#)<sup>1,2</sup>, [Ziwei He](#)<sup>2,†</sup>, [Xipeng Qiu](#)<sup>1,2,†</sup>
+[Ying Zhu](#)<sup>1,2,3</sup>, [Jiaxin Wan](#)<sup>2</sup>, [Tianyi Liang](#)<sup>2,3</sup>, [Xu Guo](#)<sup>1,2</sup>, [Xiaoran Liu](#)<sup>1,2,3</sup>, [Zengfeng Huang](#)<sup>1,2,3</sup>, [Ziwei He](#)<sup>2,3,†</sup>, [Xipeng Qiu](#)<sup>1,2,3,†</sup>
 
-<sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>University of Electronic Science and Technology of China, <sup>4</sup>East China Normal University
+<sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>OpenMoss Team
 
 <sup>†</sup>Corresponding authors
 
@@ -22,21 +22,21 @@ We are excited to introduce **GTPO-Trainer**, a comprehensive, open-source train
 
 ## HighLights
 
-- **🎯 Novel RL Algorithm:** Proposes **GTPO (Group Trajectory Policy Optimization)**, an RL algorithm inspired by TraceRL and GRPO, specifically tailored for DLLMs. It achieves unbiased implementation with complete consistency between optimization objectives and training process, and integrates dynamic sampling from DAPO during rollout to filter out low-quality data.
-- **🚀 Efficient Training & Inference:** Supports **Accelerate** distributed training and **LMDeploy** inference engine for efficient rollout, while integrating **speed reward** mechanism to optimize inference speed at the training level, enabling both faster training and generation without sacrificing quality.
-- **🧠 SOTA Performance:** At the 8B scale, our model achieves state-of-the-art results among both autoregressive (AR) models and diffusion language models (DLLMs) across multiple mathematical reasoning benchmarks. Specifically, it reaches **81.60%** on MATH500, **20.00%** on AIME2024, and **19.17%** on AIME2025, surpassing all 8B baselines and even outperforming the 32B Qwen2.5-32B-Instruct model on AIME benchmarks.
+- **🎯 Novel RL Algorithm:** We propose **GTPO (Group Trajectory Policy Optimization)**, an RL algorithm that optimizes at the generation step level for DLLMs. It achieves unbiased implementation with complete consistency between optimization objectives and training process, and integrates dynamic sampling from DAPO during rollout to filter out low-quality data.
+- **🚀 Efficient Training & Inference:** We support **Accelerate** framework for distributed training and **LMDeploy** inference engine for efficient rollout, while integrate **Speed Reward** mechanism to optimize inference speed at the training level, enabling both faster training and generation without sacrificing quality.
+- **🧠 SOTA Performance:** We achieve state-of-the-art results at the 8B scale among both autoregressive (AR) models and diffusion language models (DLLMs) across multiple mathematical reasoning benchmarks. Specifically, we reach **81.60%** on MATH500, **20.00%** on AIME2024, and **19.17%** on AIME2025, surpassing all 8B baselines and even outperforming the 32B Qwen2.5-32B-Instruct model on AIME benchmarks.
 
 ## Method
 
-Inspired by the **DLLM-RL** framework, we further develop and release an open-source **diffusion post-training framework** specifically designed for mathematical reasoning. **Aha-8B-Instruct** is developed based on **SDAR-8B-Chat** as the base model, and trained through two stages: *Supervised Fine-Tuning (SFT)* and *Reinforcement Learning (RL)*.
+We develop and release an open-source **diffusion post-training framework** for DLLMs, and train **Aha-8B-Instruct** based on **SDAR-8B-Chat** through two stages: *Supervised Fine-Tuning (SFT)* and *Reinforcement Learning (RL)*.
 
 ### Stage 1: Supervised Fine-Tuning (SFT)
 
-We prepare a proprietary, high-quality mathematical dataset with a generation length of **8K** tokens. We adopt a random-masking strategy to construct the training data for model fine-tuning.
+We prepare a proprietary, high-quality mathematical dataset with **2K** samples and a generation length of **8K** tokens. We adopt a random-masking strategy to construct the training data for model fine-tuning.
 
 ### Stage 2: Reinforcement Learning (RL)
 
-Inspired by the theoretical foundations of **TraceRL** and **GRPO**, we design an RL framework -- **GTPO**, specifically tailored for DLLMs, training with a generation length of **8K**. We achieve an unbiased implementation of RL theory for DLLMs, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
+We design an RL algorithm -- **GTPO**, and train the model with a generation length of **8K**. We achieve an unbiased implementation of RL theory, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
 
 Through this two-stage training pipeline, we successfully train **Aha-8B-Instruct**, a high-performance diffusion language model for mathematical reasoning.
 
@@ -59,10 +59,11 @@ Through this two-stage training pipeline, we successfully train **Aha-8B-Instruc
 If you find our work helpful, please consider citing:
 
 ```bibtex
-@article{zhu2025aha,
-  title={Aha: A High-Performance and Efficient Diffusion Language Model},
+@misc{zhu2025gtpo,
+  title={GTPO-Trainer: An Efficient Training Framework for Diffusion Language Models},
   author={Ying Zhu and Jiaxin Wan and Tianyi Liang and Xu Guo and Xiaoran Liu and Zengfeng Huang and Ziwei He and Xipeng Qiu},
-  journal={arXiv preprint arXiv:2501.XXXXX},
-  year={2025}
+  year={2025},
+  institution={Fudan University, Shanghai Innovation Institute},
+  url={https://github.com/Auraithm/GTPO-Trainer}
 }
 ```
