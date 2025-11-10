@@ -15,7 +15,7 @@
 
 ## TL;DR
 
-We are excited to introduce **GTPO-Trainer**, a comprehensive, open-source training framework for Diffusion Language Models (DLLMs) that encompasses both Supervised Fine-tuning (SFT) and Reinforcement Learning (RL). For SFT, We adopt a high-quality mathematical dataset and utilize a random-masking strategy during SFT to boost reasoning. For RL, we developed **GTPO (Group Trajectory Policy Optimization)**, a novel algorithm inspired by Trace-RL and GRPO, which is specifically tailored for DLLMs and engineered for efficient, multi-node training. Leveraging this framework, we release SDAR-8B-GTPO, an 8B model that establishes a new state-of-the-art (SOTA) of its scale.
+We are excited to introduce **GTPO-Trainer**, a comprehensive, open-source training framework for Diffusion Language Models (DLLMs) that encompasses both Supervised Fine-tuning (SFT) and Reinforcement Learning (RL). For SFT, We adopt a high-quality mathematical dataset and utilize a random-masking strategy during SFT to boost reasoning. For RL, we developed **GTPO (Group Trajectory Policy Optimization)**, a novel algorithm inspired by Trace-RL and GRPO, which is specifically tailored for DLLMs and engineered for efficient, multi-node training. Leveraging this framework, we release Aha-8B-Instruct, an 8B model that establishes a new state-of-the-art (SOTA) of its scale.
 
 
 ## HighLights
