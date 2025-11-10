@@ -276,7 +276,9 @@
 
                   <div class="is-size-5 publication-authors">
                     <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block"><sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute,<br><sup>3</sup>University of Electronic Science and Technology of China, <br><sup>4</sup>East China Normal University<br><br>Conference name and year</span>
+                    <span class="author-block"><sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>University of Electronic Science and Technology of China, <sup>4</sup>East China Normal University</span>
+                    <br>
+                    <span class="author-block" style="font-size: 0.9em;"><sup>†</sup>Corresponding authors</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -341,7 +343,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">TL;DR</h2>
-        <div class="content has-text-left" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7;">
+        <div class="content" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; text-align: justify;">
           <p>We are excited to introduce <strong style="font-weight: 600;">GTPO-Trainer</strong>, a comprehensive, open-source training framework for Diffusion Language Models (DLLMs) that encompasses both Supervised Fine-tuning (SFT) and Reinforcement Learning (RL). For SFT, We adopt a high-quality mathematical dataset and utilize a random-masking strategy during SFT to boost reasoning. For RL, we developed <strong style="font-weight: 600;">GTPO (Group Trajectory Policy Optimization)</strong>, a novel algorithm inspired by Trace-RL and GRPO, which is specifically tailored for DLLMs and engineered for efficient, multi-node training. Leveraging this framework, we release Aha-8B-Instruct, an 8B model that establishes a new state-of-the-art (SOTA) of its scale.</p>
         </div>
       </div>
@@ -678,7 +680,7 @@
     </h2>
 
     <div class="content has-text-justified" style="margin-bottom: 2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.05rem; line-height: 1.7; color: #333;">
-      <p style="margin-bottom: 1.5rem;">
+      <p style="margin-bottom: 1.5rem; text-align: justify;">
         Inspired by the <strong>DLLM-RL</strong> framework, we further develop and release an open-source <strong>diffusion post-training framework</strong> specifically designed for mathematical reasoning. 
         <strong style="font-weight: 600;">Aha-8B-Instruct</strong> is developed based on <strong>SDAR-8B-Chat</strong> as the base model, and trained through two stages: 
         <em>Supervised Fine-Tuning (SFT)</em> and <em>Reinforcement Learning (RL)</em>.
@@ -688,7 +690,7 @@
         <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: #3273dc;">
           Stage 1: Supervised Fine-Tuning (SFT)
         </h3>
-        <p style="margin-bottom: 0;">
+        <p style="margin-bottom: 0; text-align: justify;">
           We prepare a proprietary, high-quality mathematical dataset with a generation length of <strong>8K</strong> tokens. We adopt a random-masking strategy to construct the training data for model fine-tuning.
         </p>
       </div>
@@ -697,13 +699,13 @@
         <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: #48c774;">
           Stage 2: Reinforcement Learning (RL)
         </h3>
-        <p style="margin-bottom: 0;">
+        <p style="margin-bottom: 0; text-align: justify;">
           Inspired by the theoretical foundations of <strong>TraceRL</strong> and <strong>GRPO</strong>, we design an RL framework -- <strong>GTPO</strong>, specifically tailored for DLLMs, training with a generation length of <strong>8K</strong>. We achieve an unbiased implementation of RL theory for DLLMs, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
         </p>
       </div>
 
-      <p>
-        This two-stage design enables <strong>Aha-8B-Instruct</strong> to achieve efficient long-context adaptation while preserving stability and strong generalization across mathematical reasoning benchmarks.
+      <p style="text-align: justify;">
+        Through this two-stage training pipeline, we successfully train <strong>Aha-8B-Instruct</strong>, a high-performance diffusion language model for mathematical reasoning.
       </p>
     </div>
   </div>
@@ -717,7 +719,7 @@
       <h2 class="title is-3 has-text-centered" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Performance</h2>
 
       <div class="content-has-text-justified" style="margin-bottom: 2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.05rem; line-height: 1.7;">
-        <p style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 1rem; text-align: justify;">
           <strong style="font-weight: 600;">Aha-8B-Instruct</strong> achieves state-of-the-art results among DLLMs across mathematical reasoning benchmarks. Highlights include <strong style="font-weight: 600;">81.60%</strong> on MATH500 (surpassing the base model by <strong style="font-weight: 600;">+9.75%</strong>), <strong style="font-weight: 600;">20.00%</strong> on AIME2024 and <strong style="font-weight: 600;">19.17%</strong> on AIME2025 (dramatically outperforming all baselines), and <strong style="font-weight: 600;">44.81%</strong> on OlympiadBench. Our 8B model achieves performance comparable to or exceeding much larger 32B models on most benchmarks.
         </p>
       </div>
@@ -865,7 +867,7 @@
       <p style="margin-bottom: 1.5rem;">If you find our work helpful, please consider citing:</p>
       <pre style="background-color: #f5f5f5; padding: 1.5rem; border-radius: 8px; overflow-x: auto; border: 1px solid #e0e0e0;"><code>@article{zhu2025aha,
   title={Aha: A High-Performance and Efficient Diffusion Language Model},
-  author={Zhu, Ying and Wan, Jiaxin and Liang, Tianyi and Guo, Xu and Liu, Xiaoran and Huang, Zengfeng and He, Ziwei and Qiu, Xipeng},
+  author={Ying Zhu and Jiaxin Wan and Tianyi Liang and Xu Guo and Xiaoran Liu and Zengfeng Huang and Ziwei He and Xipeng Qiu},
   journal={arXiv preprint arXiv:2501.XXXXX},
   year={2025}
 }</code></pre>

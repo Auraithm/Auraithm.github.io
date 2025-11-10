@@ -4,6 +4,8 @@
 
 <sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>University of Electronic Science and Technology of China, <sup>4</sup>East China Normal University
 
+<sup>†</sup>Corresponding authors
+
 [![arXiv](https://img.shields.io/badge/arXiv-2501.XXXXX-b31b1b.svg)](https://arxiv.org/abs/YOUR_PAPER_ID)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/YOUR_PAPER_ID.pdf)
 [![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/YOUR_REPO_HERE)
@@ -36,7 +38,7 @@ We prepare a proprietary, high-quality mathematical dataset with a generation le
 
 Inspired by the theoretical foundations of **TraceRL** and **GRPO**, we design an RL framework -- **GTPO**, specifically tailored for DLLMs, training with a generation length of **8K**. We achieve an unbiased implementation of RL theory for DLLMs, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
 
-This two-stage design enables **Aha-8B-Instruct** to achieve efficient long-context adaptation while preserving stability and strong generalization across mathematical reasoning benchmarks.
+Through this two-stage training pipeline, we successfully train **Aha-8B-Instruct**, a high-performance diffusion language model for mathematical reasoning.
 
 
 ## Performance
@@ -59,7 +61,7 @@ If you find our work helpful, please consider citing:
 ```bibtex
 @article{zhu2025aha,
   title={Aha: A High-Performance and Efficient Diffusion Language Model},
-  author={Zhu, Ying and Wan, Jiaxin and Liang, Tianyi and Guo, Xu and Liu, Xiaoran and Huang, Zengfeng and He, Ziwei and Qiu, Xipeng},
+  author={Ying Zhu and Jiaxin Wan and Tianyi Liang and Xu Guo and Xiaoran Liu and Zengfeng Huang and Ziwei He and Xipeng Qiu},
   journal={arXiv preprint arXiv:2501.XXXXX},
   year={2025}
 }
