@@ -50,3 +50,17 @@ This two-stage design enables **Aha-8B-Instruct** to achieve efficient long-cont
 | SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 | 36.03 |
 | Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 | 40.32 |
 | **Aha-8B-Instruct (ours)** | **81.60** <br/><sub style="color: #28a745;">(+9.75)</sub> | 90.65 <br/><sub style="color: #28a745;">(+0.78)</sub> | **20.00** <br/><sub style="color: #28a745;">(+10.83)</sub> | **19.17** <br/><sub style="color: #28a745;">(+9.79)</sub> | 44.81 <br/><sub style="color: #28a745;">(+8.78)</sub> |
+
+
+## Citation
+
+If you find our work helpful, please consider citing:
+
+```bibtex
+@article{zhu2025aha,
+  title={Aha: A High-Performance and Efficient Diffusion Language Model},
+  author={Zhu, Ying and Wan, Jiaxin and Liang, Tianyi and Guo, Xu and Liu, Xiaoran and Huang, Zengfeng and He, Ziwei and Qiu, Xipeng},
+  journal={arXiv preprint arXiv:2501.XXXXX},
+  year={2025}
+}
+```
