@@ -24,7 +24,7 @@ We are excited to introduce **GTPO-Trainer**, a comprehensive, open-source train
 
 - **🎯 Novel RL Algorithm:** We propose **GTPO (Group Trajectory Policy Optimization)**, an RL algorithm that optimizes at the generation step level for DLLMs. It achieves unbiased implementation with complete consistency between optimization objectives and training process, and integrates dynamic sampling from DAPO during rollout to filter out low-quality data.
 - **🚀 Efficient Training & Inference:** We support **Accelerate** framework for distributed training and **LMDeploy** inference engine for efficient rollout, while integrate **Speed Reward** mechanism to optimize inference speed at the training level, enabling both faster training and generation without sacrificing quality.
-- **🧠 SOTA Performance:** We achieve state-of-the-art results at the 8B scale among both autoregressive (AR) models and diffusion language models (DLLMs) across multiple mathematical reasoning benchmarks. Specifically, we reach **82.85%** on MATH500, **20.63%** on AIME2024, and **19.17%** on AIME2025, surpassing all 8B baselines and even outperforming the 32B Qwen2.5-32B-Instruct model on AIME benchmarks.
+- **🧠 SOTA Performance:** We achieve state-of-the-art results at the 8B scale among both autoregressive (AR) models and diffusion language models (DLLMs) across multiple mathematical reasoning benchmarks. Specifically, we reach **83.05%** on MATH500, **20.63%** on AIME2024, and **20.83%** on AIME2025, surpassing all 8B baselines and even outperforming the 32B Qwen2.5-32B-Instruct model on AIME benchmarks.
 
 ## Method
 
@@ -43,7 +43,7 @@ Through this two-stage training pipeline, we successfully train **Aha-8B-Instruc
 
 ## Performance
 
-**Aha-8B-Instruct** achieves state-of-the-art results among DLLMs across mathematical reasoning benchmarks. Highlights include **82.85%** on MATH500 (surpassing the base model by **+11.00%**), **20.63%** on AIME2024 and **19.17%** on AIME2025 (dramatically outperforming all baselines), and **44.81%** on OlympiadBench. Our 8B model achieves performance comparable to or exceeding much larger 32B models on most benchmarks.
+**Aha-8B-Instruct** achieves state-of-the-art results among DLLMs across mathematical reasoning benchmarks. Highlights include **83.05%** on MATH500 (surpassing the base model by **+11.20%**), **20.63%** on AIME2024 and **20.83%** on AIME2025 (dramatically outperforming all baselines), and **46.40%** on OlympiadBench. Our 8B model achieves performance comparable to or exceeding much larger 32B models on most benchmarks.
 
 | Model | MATH500 | GSM8K | AIME2024 | AIME2025 | OlympiadBench |
 |-------|---------|-------|----------|----------|---------------|
@@ -51,7 +51,7 @@ Through this two-stage training pipeline, we successfully train **Aha-8B-Instruc
 | Qwen2.5-32B-Instruct | 81.13 | **94.03** | 12.92 | 11.88 | **45.65** |
 | SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 | 36.03 |
 | Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 | 40.32 |
-| **Aha-8B-Instruct (ours)** | **82.85** <br/><sub style="color: #28a745;">(+11.00)</sub> | 91.24 <br/><sub style="color: #28a745;">(+1.37)</sub> | **20.63** <br/><sub style="color: #28a745;">(+11.46)</sub> | **19.17** <br/><sub style="color: #28a745;">(+9.79)</sub> | 44.81 <br/><sub style="color: #28a745;">(+8.78)</sub> |
+| **Aha-8B-Instruct (ours)** | **83.05** <br/><sub style="color: #28a745;">(+11.20)</sub> | **93.03** <br/><sub style="color: #28a745;">(+3.16)</sub> | **20.63** <br/><sub style="color: #28a745;">(+11.46)</sub> | **20.83** <br/><sub style="color: #28a745;">(+11.45)</sub> | **46.40** <br/><sub style="color: #28a745;">(+10.37)</sub> |
 
 
 ## Citation

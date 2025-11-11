@@ -82,9 +82,10 @@ def plot_eval_results(models, datasets, scores):
 
     plt.tight_layout()
 
-    out_path = "./static/images/accuracy.svg"
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    plt.savefig(out_path, format="svg")
+    # Save both SVG and PNG
+    os.makedirs("./static/images", exist_ok=True)
+    plt.savefig("./static/images/accuracy.svg", format="svg", bbox_inches='tight')
+    plt.savefig("./static/images/accuracy.png", format="png", bbox_inches='tight', dpi=300)
     plt.close()
 
 if __name__ == "__main__":
@@ -94,6 +95,6 @@ if __name__ == "__main__":
         [73.78, 89.78, 8.96, 5.63, 36.58],
         [71.85, 89.87, 9.17, 9.38, 36.03],
         [75.59, 91.06, 11.67, 15.00, 40.32],
-        [81.60, 90.65, 20.00, 19.17, 44.81]
+        [83.05, 93.03, 20.63, 20.83, 46.40]
     ]
     plot_eval_results(models, datasets, scores)
