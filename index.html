@@ -285,7 +285,7 @@
                     <div class="publication-links">
                          <!-- GitHub Link -->
                       <span class="link-block">
-                        <a href="https://github.com/YOUR_REPO_HERE" target="_blank"
+                        <a href="https://github.com/Auraithm/GTPO-Trainer" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" style="width: 1.2em; height: 1.2em; vertical-align: middle; filter: invert(1);">
@@ -344,7 +344,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3" style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">TL;DR</h2>
         <div class="content" style="font-size: 1.2rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; text-align: justify;">
-          <p>We are excited to introduce <strong style="font-weight: 600;">GTPO-Trainer</strong>, a comprehensive, open-source training framework for Diffusion Language Models (DLLMs) that encompasses both Supervised Fine-tuning (SFT) and Reinforcement Learning (RL). For SFT, We adopt a high-quality mathematical dataset and utilize a random-masking strategy during SFT to boost reasoning. For RL, we developed <strong style="font-weight: 600;">GTPO (Group Trajectory Policy Optimization)</strong>, a novel algorithm inspired by Trace-RL and GRPO, which is specifically tailored for DLLMs and engineered for efficient, multi-node training. Leveraging this framework, we release Aha-8B-Instruct, an 8B model that establishes a new state-of-the-art (SOTA) of its scale.</p>
+          <p>We introduce <strong style="font-weight: 600;">GTPO-Trainer</strong>, an open-source training framework for Diffusion Language Models (DLLMs) with SFT and RL stages. Using this framework, we train <strong style="font-weight: 600;">Aha-8B-Instruct</strong>, achieving state-of-the-art results at the 8B scale on mathematical reasoning benchmarks, even outperforming 32B models on most tasks.</p>
         </div>
       </div>
     </div>
@@ -805,6 +805,7 @@
               <th>AIME2024</th>
               <th>AIME2025</th>
               <th>OlympiadBench</th>
+              <th>Average</th>
             </tr>
           </thead>
           <tbody>
@@ -815,6 +816,7 @@
               <td>8.96</td>
               <td>5.63</td>
               <td>36.58</td>
+              <td>42.95</td>
             </tr>
             <tr>
               <td>Qwen2.5-32B-Instruct</td>
@@ -822,7 +824,8 @@
               <td class="best">94.03</td>
               <td>12.92</td>
               <td>11.88</td>
-              <td class="best">45.65</td>
+              <td>45.65</td>
+              <td>49.12</td>
             </tr>
             <tr>
               <td>SDAR-8B-Chat</td>
@@ -831,6 +834,7 @@
               <td>9.17</td>
               <td>9.38</td>
               <td>36.03</td>
+              <td>43.26</td>
             </tr>
             <tr>
               <td>Trado-8B-Instruct</td>
@@ -839,6 +843,7 @@
               <td>11.67</td>
               <td>15.00</td>
               <td>40.32</td>
+              <td>46.73</td>
             </tr>
             <tr class="ours">
               <td><strong>Aha-8B-Instruct (ours)</strong></td>
@@ -847,6 +852,7 @@
               <td class="best">20.63<span class="gain-badge">+11.46</span></td>
               <td class="best">20.83<span class="gain-badge">+11.45</span></td>
               <td class="best">46.40<span class="gain-badge">+10.37</span></td>
+              <td class="best">52.79<span class="gain-badge">+9.53</span></td>
             </tr>
           </tbody>
         </table>
@@ -869,7 +875,7 @@
   author={Ying Zhu and Jiaxin Wan and Tianyi Liang and Xu Guo and Xiaoran Liu and Zengfeng Huang and Ziwei He and Xipeng Qiu},
   year={2025},
   institution={Fudan University, Shanghai Innovation Institute},
-  url={https://github.com/YOUR_REPO_HERE}
+  url={https://github.com/Auraithm/GTPO-Trainer}
 }</code></pre>
     </div>
   </div>

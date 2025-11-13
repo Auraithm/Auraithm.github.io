@@ -8,7 +8,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2501.XXXXX-b31b1b.svg)](https://arxiv.org/abs/YOUR_PAPER_ID)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/YOUR_PAPER_ID.pdf)
-[![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/YOUR_REPO_HERE)
+[![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/Auraithm/GTPO-Trainer)
 [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow.svg)](https://huggingface.co/YOUR_MODEL_HERE)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
@@ -17,7 +17,7 @@
 
 ## TL;DR
 
-We are excited to introduce **GTPO-Trainer**, a comprehensive, open-source training framework for Diffusion Language Models (DLLMs) that encompasses both Supervised Fine-tuning (SFT) and Reinforcement Learning (RL). For SFT, We adopt a high-quality mathematical dataset and utilize a random-masking strategy during SFT to boost reasoning. For RL, we developed **GTPO (Group Trajectory Policy Optimization)**, a novel algorithm inspired by Trace-RL and GRPO, which is specifically tailored for DLLMs and engineered for efficient, multi-node training. Leveraging this framework, we release Aha-8B-Instruct, an 8B model that establishes a new state-of-the-art (SOTA) of its scale.
+We introduce **GTPO-Trainer**, an open-source training framework for Diffusion Language Models (DLLMs) with SFT and RL stages. Using this framework, we train **Aha-8B-Instruct**, achieving state-of-the-art results at the 8B scale on mathematical reasoning benchmarks, even outperforming 32B models on most tasks.
 
 
 ## HighLights
@@ -45,13 +45,13 @@ Through this two-stage training pipeline, we successfully train **Aha-8B-Instruc
 
 **Aha-8B-Instruct** achieves state-of-the-art results among DLLMs across mathematical reasoning benchmarks. Highlights include **83.05%** on MATH500 (surpassing the base model by **+11.20%**), **20.63%** on AIME2024 and **20.83%** on AIME2025 (dramatically outperforming all baselines), and **46.40%** on OlympiadBench. Our 8B model achieves performance comparable to or exceeding much larger 32B models on most benchmarks.
 
-| Model | MATH500 | GSM8K | AIME2024 | AIME2025 | OlympiadBench |
-|-------|---------|-------|----------|----------|---------------|
-| Qwen2.5-7B-Instruct | 73.78 | 89.78 | 8.96 | 5.63 | 36.58 |
-| Qwen2.5-32B-Instruct | 81.13 | **94.03** | 12.92 | 11.88 | **45.65** |
-| SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 | 36.03 |
-| Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 | 40.32 |
-| **Aha-8B-Instruct (ours)** | **83.05** <br/><sub style="color: #28a745;">(+11.20)</sub> | **93.03** <br/><sub style="color: #28a745;">(+3.16)</sub> | **20.63** <br/><sub style="color: #28a745;">(+11.46)</sub> | **20.83** <br/><sub style="color: #28a745;">(+11.45)</sub> | **46.40** <br/><sub style="color: #28a745;">(+10.37)</sub> |
+| Model | MATH500 | GSM8K | AIME2024 | AIME2025 | OlympiadBench | Average |
+|-------|---------|-------|----------|----------|---------------|---------|
+| Qwen2.5-7B-Instruct | 73.78 | 89.78 | 8.96 | 5.63 | 36.58 | 42.95 |
+| Qwen2.5-32B-Instruct | 81.13 | **94.03** | 12.92 | 11.88 | **45.65** | 49.12 |
+| SDAR-8B-Chat | 71.85 | 89.87 | 9.17 | 9.38 | 36.03 | 43.26 |
+| Trado-8B-Instruct | 75.59 | 91.06 | 11.67 | 15.00 | 40.32 | 46.73 |
+| **Aha-8B-Instruct (ours)** | **83.05** <br/><sub style="color: #28a745;">(+11.20)</sub> | **93.03** <br/><sub style="color: #28a745;">(+3.16)</sub> | **20.63** <br/><sub style="color: #28a745;">(+11.46)</sub> | **20.83** <br/><sub style="color: #28a745;">(+11.45)</sub> | **46.40** <br/><sub style="color: #28a745;">(+10.37)</sub> | **52.79** <br/><sub style="color: #28a745;">(+9.53)</sub> |
 
 
 ## Citation

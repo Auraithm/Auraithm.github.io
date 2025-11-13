@@ -6,7 +6,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2501.XXXXX-b31b1b.svg)](https://arxiv.org/abs/YOUR_PAPER_ID)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/YOUR_PAPER_ID.pdf)
-[![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/YOUR_REPO_HERE)
+[![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/Auraithm/GTPO-Trainer)
 [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow.svg)](https://huggingface.co/YOUR_MODEL_HERE)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
