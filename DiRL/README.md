@@ -7,7 +7,7 @@
 <sup>†</sup>Corresponding authors
 
 [![GitHub](https://img.shields.io/badge/GitHub-Code-black.svg?logo=github)](https://github.com/Auraithm/DiRL)
-[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow.svg)](https://huggingface.co/YOUR_MODEL_HERE)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow.svg)](https://huggingface.co/auraithm/DiRL-8B-Instruct)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 
@@ -20,7 +20,7 @@ We introduce **DiRL**, an open-source training framework for Diffusion Language 
 
 ## HighLights
 
-- **🎯 Novel RL Algorithm:** We propose **GTPO (Group Trajectory Policy Optimization)**, an RL algorithm that optimizes at the generation step level for DLLMs. It achieves unbiased implementation with complete consistency between optimization objectives and training process, and integrates dynamic sampling from DAPO during rollout to filter out low-quality data.
+- **🎯 Novel RL Algorithm:** We propose **DiPO (Discrete Diffusion Policy Optimization)**, an RL algorithm that optimizes at the generation step level for DLLMs. It achieves unbiased implementation with complete consistency between optimization objectives and training process, and integrates dynamic sampling from DAPO during rollout to filter out low-quality data.
 - **🚀 Efficient Training & Inference:** We support **Accelerate** framework for distributed training and **LMDeploy** inference engine for efficient rollout, while integrate **Speed Reward** mechanism to optimize inference speed at the training level, enabling both faster training and generation without sacrificing quality.
 - **🧠 SOTA Performance:** We achieve state-of-the-art results at the 8B scale among both autoregressive (AR) models and diffusion language models (DLLMs) across multiple mathematical reasoning benchmarks. Specifically, we reach **83.05%** on MATH500, **20.63%** on AIME2024, and **20.83%** on AIME2025, surpassing all 8B baselines and even outperforming the 32B Qwen2.5-32B-Instruct model on AIME benchmarks.
 
@@ -34,7 +34,7 @@ We prepare a proprietary, high-quality mathematical dataset with **2K** samples 
 
 ### Stage 2: Reinforcement Learning (RL)
 
-We design an RL algorithm -- **GTPO**, and train the model with a generation length of **8K**. We achieve an unbiased implementation of RL theory, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
+We design an RL algorithm -- **DiPO**, and train the model with a generation length of **8K**. We achieve an unbiased implementation of RL theory, ensuring complete consistency between the optimization objective and the actual training process. Additionally, during the rollout phase, we adopt dynamic sampling from DAPO to filter out data with zero advantage standard deviation.
 
 Through this two-stage training pipeline, we successfully train **DiRL-8B-Instruct**, a high-performance diffusion language model for mathematical reasoning.
 
