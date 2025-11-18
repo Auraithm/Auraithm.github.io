@@ -89,7 +89,7 @@ def plot_eval_results(models, datasets, scores):
     plt.close()
 
 if __name__ == "__main__":
-    models = ["Qwen2.5-7B-Instruct", "SDAR-8B-Chat", "Trado-8B-Instruct", "Aha-8B-Instruct (ours)"]
+    models = ["Qwen2.5-7B-Instruct", "SDAR-8B-Chat", "Trado-8B-Instruct", "DiRL-8B-Instruct (ours)"]
     datasets = ["MATH500", "GSM8K", "AIME2024", "AIME2025", "OlympiadBench"]
     scores = [
         [73.78, 89.78, 8.96, 5.63, 36.58],
