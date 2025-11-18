@@ -72,20 +72,20 @@ def plot_eval_results(models, datasets, scores):
 
     # 其他设置
     ax.set_ylabel("Accuracy", fontsize=14)
-    ax.set_ylim(0, 105)
+    ax.set_ylim(0, 110)
 
-    ax.legend(handles=legend_handles, loc="upper center", bbox_to_anchor=(0.5, 1.06),
+    ax.legend(handles=legend_handles, loc="upper center", bbox_to_anchor=(0.5, 1.08),
               ncol=len(models), frameon=False, fontsize=12)
 
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
-    plt.tight_layout()
+    plt.tight_layout(pad=1.5)
 
     # Save both SVG and PNG
     os.makedirs("./static/images", exist_ok=True)
-    plt.savefig("./static/images/accuracy.svg", format="svg", bbox_inches='tight')
-    plt.savefig("./static/images/accuracy.png", format="png", bbox_inches='tight', dpi=300)
+    plt.savefig("./static/images/accuracy.svg", format="svg", bbox_inches='tight', pad_inches=0.2)
+    plt.savefig("./static/images/accuracy.png", format="png", bbox_inches='tight', pad_inches=0.2, dpi=300)
     plt.close()
 
 if __name__ == "__main__":
